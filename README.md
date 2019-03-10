@@ -17,16 +17,30 @@ Abstraction Layer for File Management.
 
 ## Functions
 
+To ignore file extension and force treat the file as a certain type, you can pass the option `treatAs` as e.g. `json`.
+
 ### smartRead(filepath, options = { treatAs = null })
 
-Read and parse file based on file extension. The following extensions are handled in order:
+Read and parse file based on file extension.
+
+The following extensions are handled in order:
 
 - `.json`: Loads file using [JSON.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse).
-- `.yml` and `yaml`: Loads file using [yaml-boost](https://github.com/blackflux/yaml-boost).
+- `.yml` and `.yaml`: Loads file using [yaml-boost](https://github.com/blackflux/yaml-boost).
 - `.js`: Loads file using [require](https://nodejs.org/api/modules.html#modules_require_id), but invalidating the cache before doing so.
 - `.*`: Treats file as text file and loads as array of lines.
 
-To ignore file extension and force treat the file as a certain type, you can pass the option `treatAs` as e.g. `json`.
+### smartWrite(filepath. content, options = { treatAs = null })
+
+Serialize and write content to file based on file extension. The file is only actually written if the content has changed.
+
+Returns true if the file was written, false otherwise.
+
+The following extension are handled in order:
+
+- `.json`: Serialize uses [JSON.stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify).
+- `.yml` and `.yaml`: Serialize uses [yaml-boost](https://github.com/blackflux/yaml-boost).
+- `.*`: Expects content as array and serializes by joining array using new line character.
 
 ## Important
 

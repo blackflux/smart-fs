@@ -10,7 +10,7 @@ describe('Testing smartRead', () => {
     dir = tmp.dirSync({ keep: false, unsafeCleanup: true }).name;
   });
 
-  const executeTest = (filename, content, expected, options = {}) => {
+  const executeTest = (filename, content, expected, options) => {
     const filepath = path.join(dir, filename);
     fs.writeFileSync(filepath, content, 'utf8');
     expect(smartRead(filepath, options)).to.deep.equal(expected);
