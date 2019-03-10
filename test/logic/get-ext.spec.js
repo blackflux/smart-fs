@@ -1,6 +1,6 @@
 const path = require('path');
 const expect = require('chai').expect;
-const getExt = require('../../src/actions/get-ext');
+const getExt = require('../../src/logic/get-ext');
 
 describe('Testing getExt', () => {
   const executeTest = (filename, expected) => {

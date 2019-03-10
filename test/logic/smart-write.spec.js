@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const expect = require('chai').expect;
 const tmp = require('tmp');
-const smartWrite = require('../../src/actions/smart-write');
+const smartWrite = require('../../src/logic/smart-write');
 
 describe('Testing smartWrite', () => {
   let dir;
