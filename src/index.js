@@ -1,3 +1,3 @@
 
-module.exports.smartRead = require('./actions/smart-read');
-module.exports.smartWrite = require('./actions/smart-write');
+module.exports.smartRead = require('./logic/smart-read');
+module.exports.smartWrite = require('./logic/smart-write');
