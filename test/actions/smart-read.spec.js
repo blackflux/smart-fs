@@ -1,0 +1,43 @@
+const fs = require('fs');
+const path = require('path');
+const expect = require('chai').expect;
+const tmp = require('tmp');
+const smartRead = require('../../src/actions/smart-read');
+
+describe('Testing smartRead', () => {
+  let dir;
+  beforeEach(() => {
+    dir = tmp.dirSync({ keep: false, unsafeCleanup: true }).name;
+  });
+
+  const executeTest = (filename, content, expected, options) => {
+    const filepath = path.join(dir, filename);
+    fs.writeFileSync(filepath, content, 'utf8');
+    expect(smartRead(filepath, options)).to.deep.equal(expected);
+  };
+
+  it('Testing .json', () => {
+    executeTest('file.json', '{"key":"value"}', { key: 'value' });
+  });
+
+  it('Testing .yml', () => {
+    executeTest('file.yml', 'key: value', { key: 'value' });
+  });
+
+  it('Testing .js', () => {
+    executeTest('file.js', "module.exports = {key: 'value'};", { key: 'value' });
+  });
+
+  it('Testing .js cache invalidation', () => {
+    executeTest('file.js', "module.exports = {key: 'value'};", { key: 'value' });
+    executeTest('file.js', "module.exports = {key: 'other'};", { key: 'other' });
+  });
+
+  it('Testing default', () => {
+    executeTest('file.txt', 'line1\nline2', ['line1', 'line2']);
+  });
+
+  it('Testing treatAs', () => {
+    executeTest('file.txt', '{"key":"value"}', { key: 'value' }, { treatAs: 'json' });
+  });
+});
