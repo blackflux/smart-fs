@@ -15,6 +15,12 @@ Abstraction Layer for File Management.
 
     $ npm install --save smart-fs
 
+## Functions
+
+### getExt(filename)
+
+Get the file extension without the dot.
+
 ## Important
 
 Do not use this library for loading if you don't trust the source of the files you are loading!
