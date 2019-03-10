@@ -4,10 +4,17 @@ const yaml = require('yaml-boost');
 const getExt = require('./get-ext');
 
 
-module.exports = (filepath) => {
+module.exports = (filepath, options = {}) => {
   assert(typeof filepath === 'string');
+  assert(options instanceof Object && !Array.isArray(options));
 
-  switch (getExt(filepath)) {
+  const ctx = Object.assign({
+    treatAs: null
+  }, options);
+  assert(Object.keys(ctx).length === 1, 'Unexpected Option provided!');
+  assert(ctx.treatAs === null || typeof ctx.treatAs === 'string');
+
+  switch (ctx.treatAs || getExt(filepath)) {
     case 'json':
       return JSON.parse(fs.readFileSync(filepath, 'utf8'));
     case 'yml':
