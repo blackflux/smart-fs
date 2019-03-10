@@ -10,41 +10,34 @@ describe('Testing smartRead', () => {
     dir = tmp.dirSync({ keep: false, unsafeCleanup: true }).name;
   });
 
-  const writeFile = (filename, content) => {
+  const executeTest = (filename, content, expected, options = {}) => {
     const filepath = path.join(dir, filename);
     fs.writeFileSync(filepath, content, 'utf8');
-    return filepath;
+    expect(smartRead(filepath, options)).to.deep.equal(expected);
   };
 
   it('Testing .json', () => {
-    const filename = writeFile('file.json', '{"key":"value"}');
-    expect(smartRead(filename)).to.deep.equal({ key: 'value' });
+    executeTest('file.json', '{"key":"value"}', { key: 'value' });
   });
 
   it('Testing .yml', () => {
-    const filename = writeFile('file.yml', 'key: value');
-    expect(smartRead(filename)).to.deep.equal({ key: 'value' });
+    executeTest('file.yml', 'key: value', { key: 'value' });
   });
 
   it('Testing .js', () => {
-    const filename = writeFile('file.js', "module.exports = {key: 'value'};");
-    expect(smartRead(filename)).to.deep.equal({ key: 'value' });
+    executeTest('file.js', "module.exports = {key: 'value'};", { key: 'value' });
   });
 
   it('Testing .js cache invalidation', () => {
-    const filename = writeFile('file.js', "module.exports = {key: 'value'};");
-    expect(smartRead(filename)).to.deep.equal({ key: 'value' });
-    writeFile('file.js', "module.exports = {key: 'other'};");
-    expect(smartRead(filename)).to.deep.equal({ key: 'other' });
+    executeTest('file.js', "module.exports = {key: 'value'};", { key: 'value' });
+    executeTest('file.js', "module.exports = {key: 'other'};", { key: 'other' });
   });
 
   it('Testing default', () => {
-    const filename = writeFile('file.txt', 'line1\nline2');
-    expect(smartRead(filename)).to.deep.equal(['line1', 'line2']);
+    executeTest('file.txt', 'line1\nline2', ['line1', 'line2']);
   });
 
   it('Testing treatAs', () => {
-    const filename = writeFile('file.txt', '{"key":"value"}');
-    expect(smartRead(filename, { treatAs: 'json' })).to.deep.equal({ key: 'value' });
+    executeTest('file.txt', '{"key":"value"}', { key: 'value' }, { treatAs: 'json' });
   });
 });
