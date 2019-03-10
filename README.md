@@ -17,16 +17,7 @@ Abstraction Layer for File Management.
 
 ## Functions
 
-### getExt(filename)
-
-Get the file extension without the dot.
-
-### ensureDir(dirname, options = {})
-
-Create directory if it does not exist. No error is throw if the directory already exist.
-
-Returns true if the directory was successfully created, false otherwise.
-Options get passed into [fs.mkdirSync](https://nodejs.org/api/fs.html#fs_fs_mkdirsync_path_options) internally.
+...
 
 ## Important
 
