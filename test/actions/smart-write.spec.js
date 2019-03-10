@@ -36,4 +36,14 @@ describe('Testing smartWrite', () => {
     executeTest('file.txt', ['line1', 'line2'], 'line1\nline2');
     executeTest('file.txt', ['line1', 'line2'], 'line1\nline2');
   });
+
+  it('Testing custom merge strategy', () => {
+    executeTest('file.json', { key: 'value' }, '{\n  "key": "value"\n}');
+    executeTest(
+      'file.json',
+      { other: 'value' },
+      '{\n  "key": "value",\n  "other": "value"\n}',
+      { mergeStrategy: (existing, changeset) => Object.assign(existing, changeset) }
+    );
+  });
 });

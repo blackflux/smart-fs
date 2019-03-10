@@ -30,10 +30,13 @@ The following extensions are handled in order:
 - `.js`: Loads file using [require](https://nodejs.org/api/modules.html#modules_require_id), but invalidating the cache before doing so.
 - `.*`: Treats file as text file and loads as array of lines.
 
-### smartWrite(filepath. content, options = { treatAs = null })
+### smartWrite(filepath. content, options = { treatAs = null, mergeStrategy = (existing, changeset) => changeset })
 
-Serialize and write content to file based on file extension. The file is only actually written if the content has changed.
+Serialize and write content to file based on file extension.
 
+The file and all necessary folders are created if not present.
+
+The file is only actually written if the content has changed. 
 Returns true if the file was written, false otherwise.
 
 The following extension are handled in order:
@@ -41,6 +44,9 @@ The following extension are handled in order:
 - `.json`: Serialize uses [JSON.stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify).
 - `.yml` and `.yaml`: Serialize uses [yaml-boost](https://github.com/blackflux/yaml-boost).
 - `.*`: Expects content as array and serializes by joining array using new line character.
+
+The `mergeStrategy` option can be used to customize how the new content is merged if the target file already exists.
+By default the file is simply overwritten.
 
 ## Important
 

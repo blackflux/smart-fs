@@ -97,6 +97,8 @@
   ],
   "dependencies": {
     "fs-extra": "7.0.1",
+    "lodash.clonedeep": "4.5.0",
+    "lodash.isequal": "4.5.0",
     "yaml-boost": "1.8.4"
   }
 }
