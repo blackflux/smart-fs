@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const expect = require('chai').expect;
 const tmp = require('tmp');
-const smartRead = require('../../src/actions/smart-read');
+const smartRead = require('../../src/logic/smart-read');
 
 describe('Testing smartRead', () => {
   let dir;
