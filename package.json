@@ -96,6 +96,7 @@
     "lib"
   ],
   "dependencies": {
-    "fs-extra": "7.0.1"
+    "fs-extra": "7.0.1",
+    "yaml-boost": "^1.8.4"
   }
 }
