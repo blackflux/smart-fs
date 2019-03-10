@@ -42,4 +42,9 @@ describe('Testing smartRead', () => {
     const filename = writeFile('file.txt', 'line1\nline2');
     expect(smartRead(filename)).to.deep.equal(['line1', 'line2']);
   });
+
+  it('Testing treatAs', () => {
+    const filename = writeFile('file.txt', '{"key":"value"}');
+    expect(smartRead(filename, { treatAs: 'json' })).to.deep.equal({ key: 'value' });
+  });
 });
