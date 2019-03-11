@@ -37,6 +37,10 @@ describe('Testing smartRead', () => {
     executeTest('file.txt', 'line1\nline2', ['line1', 'line2']);
   });
 
+  it('Testing postfix empty line', () => {
+    executeTest('file.txt', 'line1\nline2\n', ['line1', 'line2']);
+  });
+
   it('Testing treatAs', () => {
     executeTest('file.txt', '{"key":"value"}', { key: 'value' }, { treatAs: 'json' });
   });
