@@ -42,7 +42,7 @@ module.exports = (filepath, content, options = {}) => {
         break;
       default:
         assert(Array.isArray(mergedContent));
-        contentString = mergedContent.join('\n');
+        contentString = `${mergedContent.join('\n')}\n`;
         break;
     }
     fs.writeFileSync(filepath, contentString);
