@@ -17,7 +17,7 @@ describe('Testing smartWrite', () => {
   };
 
   it('Testing .json', () => {
-    executeTest('file.json', { key: 'value' }, '{\n  "key": "value"\n}');
+    executeTest('file.json', { key: 'value' }, '{\n  "key": "value"\n}\n');
   });
 
   it('Testing .yml', () => {
@@ -29,7 +29,7 @@ describe('Testing smartWrite', () => {
   });
 
   it('Testing treatAs', () => {
-    executeTest('file.txt', { key: 'value' }, '{\n  "key": "value"\n}', { treatAs: 'json' });
+    executeTest('file.txt', { key: 'value' }, '{\n  "key": "value"\n}\n', { treatAs: 'json' });
   });
 
   it('Testing unchanged content', () => {
@@ -38,11 +38,11 @@ describe('Testing smartWrite', () => {
   });
 
   it('Testing custom merge strategy', () => {
-    executeTest('file.json', { key: 'value' }, '{\n  "key": "value"\n}');
+    executeTest('file.json', { key: 'value' }, '{\n  "key": "value"\n}\n');
     executeTest(
       'file.json',
       { other: 'value' },
-      '{\n  "key": "value",\n  "other": "value"\n}',
+      '{\n  "key": "value",\n  "other": "value"\n}\n',
       { mergeStrategy: (existing, changeset) => Object.assign(existing, changeset) }
     );
   });
