@@ -38,7 +38,7 @@ module.exports = (filepath, content, options = {}) => {
         contentString = yaml.dump(mergedContent);
         break;
       case 'json':
-        contentString = JSON.stringify(mergedContent, null, 2);
+        contentString = `${JSON.stringify(mergedContent, null, 2)}\n`;
         break;
       default:
         assert(Array.isArray(mergedContent));
