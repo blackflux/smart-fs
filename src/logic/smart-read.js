@@ -14,18 +14,27 @@ module.exports = (filepath, options = {}) => {
   assert(Object.keys(ctx).length === 1, 'Unexpected Option provided!');
   assert(ctx.treatAs === null || typeof ctx.treatAs === 'string');
 
+  let result;
   switch (ctx.treatAs || getExt(filepath)) {
     case 'json':
-      return JSON.parse(fs.readFileSync(filepath, 'utf8'));
+      result = JSON.parse(fs.readFileSync(filepath, 'utf8'));
+      break;
     case 'yml':
     case 'yaml':
-      return yaml.load(filepath, {});
+      result = yaml.load(filepath, {});
+      break;
     case 'js':
       // ensure content is "fresh"
       delete require.cache[require.resolve(filepath)];
       // eslint-disable-next-line import/no-dynamic-require,global-require
-      return require(filepath);
+      result = require(filepath);
+      break;
     default:
-      return fs.readFileSync(filepath, 'utf8').split('\n');
+      result = fs.readFileSync(filepath, 'utf8').split('\n');
+      if (result[result.length - 1].trim() === '') {
+        result.pop();
+      }
+      break;
   }
+  return result;
 };
