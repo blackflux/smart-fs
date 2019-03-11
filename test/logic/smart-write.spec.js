@@ -25,7 +25,7 @@ describe('Testing smartWrite', () => {
   });
 
   it('Testing default', () => {
-    executeTest('file.txt', ['line1', 'line2'], 'line1\nline2');
+    executeTest('file.txt', ['line1', 'line2'], 'line1\nline2\n');
   });
 
   it('Testing treatAs', () => {
@@ -33,8 +33,8 @@ describe('Testing smartWrite', () => {
   });
 
   it('Testing unchanged content', () => {
-    executeTest('file.txt', ['line1', 'line2'], 'line1\nline2');
-    executeTest('file.txt', ['line1', 'line2'], 'line1\nline2');
+    executeTest('file.txt', ['line1', 'line2'], 'line1\nline2\n');
+    executeTest('file.txt', ['line1', 'line2'], 'line1\nline2\n');
   });
 
   it('Testing custom merge strategy', () => {
