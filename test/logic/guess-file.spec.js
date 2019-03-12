@@ -34,4 +34,9 @@ describe('Testing guessFile', () => {
   it('Testing partial multi non-match', () => {
     executeTest(['file.json', 'file.yml'], 'file', null);
   });
+
+  it('Testing double extension', () => {
+    executeTest(['file.json.json'], 'file', null);
+    executeTest(['file..json'], 'file', null);
+  });
 });
