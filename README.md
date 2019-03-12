@@ -27,9 +27,10 @@ The following extensions are handled in order:
 
 - `.json`: Loads file using [JSON.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse).
 - `.yml` and `.yaml`: Loads file using [yaml-boost](https://github.com/blackflux/yaml-boost).
-- `.js`: Loads file using [require](https://nodejs.org/api/modules.html#modules_require_id). 
-Hence [cache](https://nodejs.org/api/modules.html#modules_require_cache) invalidation needs to happen as appropriate.
+- `.js`: Loads file using [require](https://nodejs.org/api/modules.html#modules_require_id).
 - `.*`: Treats file as text file and loads as array of lines.
+
+Note that the [required cache](https://nodejs.org/api/modules.html#modules_require_cache) is not automatically invalidated when loading cached `.js` files.
 
 ### smartWrite(filepath. content, options = { treatAs = null, mergeStrategy = (existing, changeset) => changeset })
 
