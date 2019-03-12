@@ -17,7 +17,14 @@ Abstraction Layer for File Management.
 
 ## Functions
 
-To ignore file extension and force treat the file as a certain type, you can pass the option `treatAs` as e.g. `json`.
+### guessFile(filepath)
+
+Extends and returns filepath with the file extension as appropriate. Returns `null` if no good match was found.
+
+A few notes:
+  - Only extends extensions, not partial file names
+  - Will prefer to match the exact file
+  - Will return `null` when multiple possible extensions are found
 
 ### smartRead(filepath, options = { treatAs = null })
 
@@ -31,6 +38,8 @@ The following extensions are handled in order:
 - `.*`: Treats file as text file and loads as array of lines.
 
 Note that the [required cache](https://nodejs.org/api/modules.html#modules_require_cache) is not automatically invalidated when loading cached `.js` files.
+
+To ignore file extension and force treat the file as a certain type, you can pass the option `treatAs` as e.g. `json`.
 
 ### smartWrite(filepath. content, options = { treatAs = null, mergeStrategy = (existing, changeset) => changeset })
 
@@ -46,6 +55,8 @@ The following extension are handled in order:
 - `.json`: Serialize uses [JSON.stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify).
 - `.yml` and `.yaml`: Serialize uses [yaml-boost](https://github.com/blackflux/yaml-boost).
 - `.*`: Expects content as array and serializes by joining array using new line character.
+
+To ignore file extension and force treat the file as a certain type, you can pass the option `treatAs` as e.g. `json`.
 
 The `mergeStrategy` option can be used to customize how the new content is merged if the target file already exists.
 By default the file is simply overwritten.
