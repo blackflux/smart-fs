@@ -24,8 +24,6 @@ module.exports = (filepath, options = {}) => {
       result = yaml.load(filepath, {});
       break;
     case 'js':
-      // ensure content is "fresh"
-      delete require.cache[require.resolve(filepath)];
       // eslint-disable-next-line import/no-dynamic-require,global-require
       result = require(filepath);
       break;
