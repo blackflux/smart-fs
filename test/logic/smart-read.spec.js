@@ -28,9 +28,9 @@ describe('Testing smartRead', () => {
     executeTest('file.js', "module.exports = {key: 'value'};", { key: 'value' });
   });
 
-  it('Testing .js cache invalidation', () => {
+  it('Testing .js cache not invalidated', () => {
     executeTest('file.js', "module.exports = {key: 'value'};", { key: 'value' });
-    executeTest('file.js', "module.exports = {key: 'other'};", { key: 'other' });
+    executeTest('file.js', "module.exports = {key: 'other'};", { key: 'value' });
   });
 
   it('Testing default', () => {
