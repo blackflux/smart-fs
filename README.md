@@ -26,13 +26,14 @@ A few notes:
   - Will prefer to match the exact file
   - Will return `null` when multiple possible extensions are found
 
-### smartRead(filepath, options = { treatAs = null })
+### smartRead(filepath, options = { treatAs = null, compact = false })
 
 Read and parse file based on file extension.
 
 The following extensions are handled in order:
 
 - `.json`: Loads file using [JSON.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse).
+- `.xml`: Loads file using [xml-js](https://github.com/nashwaan/xml-js). Can use `compact` [option](https://github.com/nashwaan/xml-js#compact-vs-non-compact), defaults to `false`.
 - `.yml` and `.yaml`: Loads file using [yaml-boost](https://github.com/blackflux/yaml-boost).
 - `.js`: Loads file using [require](https://nodejs.org/api/modules.html#modules_require_id).
 - `.*`: Treats file as text file and loads as array of lines.
@@ -41,7 +42,7 @@ Note that the [required cache](https://nodejs.org/api/modules.html#modules_requi
 
 To ignore file extension and force treat the file as a certain type, you can pass the option `treatAs` as e.g. `json`.
 
-### smartWrite(filepath. content, options = { treatAs = null, mergeStrategy = (existing, changeset) => changeset })
+### smartWrite(filepath. content, options = { treatAs = null, mergeStrategy = (existing, changeset) => changeset, compact = false })
 
 Serialize and write content to file based on file extension.
 
@@ -53,6 +54,7 @@ Returns true if the file was written, false otherwise.
 The following extension are handled in order:
 
 - `.json`: Serialize uses [JSON.stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify).
+- `.xml`: Serialize using [xml-js](https://github.com/nashwaan/xml-js). Can use `compact` [option](https://github.com/nashwaan/xml-js#compact-vs-non-compact), defaults to `false`.
 - `.yml` and `.yaml`: Serialize uses [yaml-boost](https://github.com/blackflux/yaml-boost).
 - `.*`: Expects content as array and serializes by joining array using new line character.
 
