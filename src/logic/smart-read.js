@@ -10,10 +10,12 @@ module.exports = (filepath, options = {}) => {
   assert(options instanceof Object && !Array.isArray(options));
 
   const ctx = Object.assign({
-    treatAs: null
+    treatAs: null,
+    compact: false
   }, options);
-  assert(Object.keys(ctx).length === 1, 'Unexpected Option provided!');
+  assert(Object.keys(ctx).length === 2, 'Unexpected Option provided!');
   assert(ctx.treatAs === null || typeof ctx.treatAs === 'string');
+  assert(typeof ctx.compact === 'boolean');
 
   let result;
   switch (ctx.treatAs || getExt(filepath)) {
@@ -21,7 +23,7 @@ module.exports = (filepath, options = {}) => {
       result = JSON.parse(fs.readFileSync(filepath, 'utf8'));
       break;
     case 'xml':
-      result = xmlParser.parse(fs.readFileSync(filepath, 'utf8'));
+      result = xmlParser.parse(fs.readFileSync(filepath, 'utf8'), options);
       break;
     case 'yml':
     case 'yaml':

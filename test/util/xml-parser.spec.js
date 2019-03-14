@@ -6,8 +6,8 @@ const xmlParser = require('../../src/util/xml-parser');
 describe('Testing xml-parser.js', () => {
   const executeTest = (filename) => {
     const content = fs.readFileSync(filename, 'utf8');
-    const parsed = xmlParser.parse(content);
-    const stringified = xmlParser.stringify(parsed);
+    const parsed = xmlParser.parse(content, { compact: false });
+    const stringified = xmlParser.stringify(parsed, { compact: false });
     expect(content).to.equal(stringified);
   };
 

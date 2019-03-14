@@ -47,6 +47,18 @@ describe('Testing smartRead', () => {
     );
   });
 
+  it('Testing .xml (compact)', () => {
+    executeTest(
+      'file.xml',
+      '<key>value</key>\n',
+      {
+        data: { key: { _text: 'value' } },
+        meta: { spaceSelfClosing: false, spaces: 0 }
+      },
+      { compact: true }
+    );
+  });
+
   it('Testing .yml', () => {
     executeTest('file.yml', 'key: value', { key: 'value' });
   });

@@ -16,11 +16,13 @@ module.exports = (filepath, content, options = {}) => {
 
   const ctx = Object.assign({
     treatAs: null,
-    mergeStrategy: (existing, changeset) => changeset
+    mergeStrategy: (existing, changeset) => changeset,
+    compact: false
   }, options);
-  assert(Object.keys(ctx).length === 2, 'Unexpected Option provided!');
+  assert(Object.keys(ctx).length === 3, 'Unexpected Option provided!');
   assert(ctx.treatAs === null || typeof ctx.treatAs === 'string');
   assert(typeof ctx.mergeStrategy === 'function');
+  assert(typeof ctx.compact === 'boolean');
 
   const currentContent = fs.existsSync(filepath)
     ? smartRead(filepath, { treatAs: ctx.treatAs })
@@ -39,7 +41,7 @@ module.exports = (filepath, content, options = {}) => {
         contentString = yaml.dump(mergedContent);
         break;
       case 'xml':
-        contentString = xmlParser.stringify(mergedContent);
+        contentString = xmlParser.stringify(mergedContent, options);
         break;
       case 'json':
         contentString = `${JSON.stringify(mergedContent, null, 2)}\n`;
