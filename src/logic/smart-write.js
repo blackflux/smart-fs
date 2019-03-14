@@ -6,7 +6,8 @@ const cloneDeep = require('lodash.clonedeep');
 const fsExtra = require('fs-extra');
 const yaml = require('yaml-boost');
 const smartRead = require('./smart-read');
-const getExt = require('./get-ext');
+const xmlParser = require('../util/xml-parser');
+const getExt = require('../util/get-ext');
 
 module.exports = (filepath, content, options = {}) => {
   assert(typeof filepath === 'string');
@@ -36,6 +37,9 @@ module.exports = (filepath, content, options = {}) => {
       case 'yml':
       case 'yaml':
         contentString = yaml.dump(mergedContent);
+        break;
+      case 'xml':
+        contentString = xmlParser.stringify(mergedContent);
         break;
       case 'json':
         contentString = `${JSON.stringify(mergedContent, null, 2)}\n`;
