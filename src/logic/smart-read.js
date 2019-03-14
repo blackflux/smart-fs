@@ -1,7 +1,8 @@
 const assert = require('assert');
 const fs = require('fs');
 const yaml = require('yaml-boost');
-const getExt = require('./get-ext');
+const xmlParser = require('../util/xml-parser');
+const getExt = require('../util/get-ext');
 
 
 module.exports = (filepath, options = {}) => {
@@ -18,6 +19,9 @@ module.exports = (filepath, options = {}) => {
   switch (ctx.treatAs || getExt(filepath)) {
     case 'json':
       result = JSON.parse(fs.readFileSync(filepath, 'utf8'));
+      break;
+    case 'xml':
+      result = xmlParser.parse(fs.readFileSync(filepath, 'utf8'), options);
       break;
     case 'yml':
     case 'yaml':

@@ -20,6 +20,30 @@ describe('Testing smartWrite', () => {
     executeTest('file.json', { key: 'value' }, '{\n  "key": "value"\n}\n');
   });
 
+  it('Testing .xml', () => {
+    executeTest(
+      'file.xml',
+      {
+        data: {
+          elements: [
+            {
+              elements: [
+                {
+                  text: 'value',
+                  type: 'text'
+                }
+              ],
+              name: 'key',
+              type: 'element'
+            }
+          ]
+        },
+        meta: { spaceSelfClosing: false }
+      },
+      '<key>value</key>'
+    );
+  });
+
   it('Testing .yml', () => {
     executeTest('file.yml', { key: 'value' }, 'key: value\n');
   });
