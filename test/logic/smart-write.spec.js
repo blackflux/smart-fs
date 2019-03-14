@@ -38,12 +38,9 @@ describe('Testing smartWrite', () => {
             }
           ]
         },
-        meta: {
-          spaceSelfClosing: false,
-          spaces: 0
-        }
+        meta: { spaceSelfClosing: false }
       },
-      '<key>value</key>\n'
+      '<key>value</key>'
     );
   });
 
@@ -52,9 +49,9 @@ describe('Testing smartWrite', () => {
       'file.xml',
       {
         data: { key: { _text: 'value' } },
-        meta: { spaceSelfClosing: false, spaces: 0 }
+        meta: { spaceSelfClosing: false }
       },
-      '<key>value</key>\n',
+      '<key>value</key>',
       { compact: true }
     );
   });

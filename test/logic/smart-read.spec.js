@@ -23,7 +23,7 @@ describe('Testing smartRead', () => {
   it('Testing .xml', () => {
     executeTest(
       'file.xml',
-      '<key>value</key>\n',
+      '<key>value</key>',
       {
         data: {
           elements: [
@@ -39,10 +39,7 @@ describe('Testing smartRead', () => {
             }
           ]
         },
-        meta: {
-          spaceSelfClosing: false,
-          spaces: 0
-        }
+        meta: { spaceSelfClosing: false }
       }
     );
   });
@@ -50,10 +47,10 @@ describe('Testing smartRead', () => {
   it('Testing .xml (compact)', () => {
     executeTest(
       'file.xml',
-      '<key>value</key>\n',
+      '<key>value</key>',
       {
         data: { key: { _text: 'value' } },
-        meta: { spaceSelfClosing: false, spaces: 0 }
+        meta: { spaceSelfClosing: false }
       },
       { compact: true }
     );
