@@ -8,5 +8,5 @@ module.exports.parse = xml => ({
 });
 module.exports.stringify = obj => `${
   xmlJs.js2xml(obj.data)
-    .replace(/ ?([/?]>)/g, obj.meta.spaceSelfClosing ? ' $1' : '$1')
+    .replace(/([/?]>)/g, obj.meta.spaceSelfClosing ? ' $1' : '$1')
 }`;
