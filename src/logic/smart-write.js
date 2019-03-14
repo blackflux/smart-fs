@@ -16,13 +16,11 @@ module.exports = (filepath, content, options = {}) => {
 
   const ctx = Object.assign({
     treatAs: null,
-    mergeStrategy: (existing, changeset) => changeset,
-    compact: false
+    mergeStrategy: (existing, changeset) => changeset
   }, options);
-  assert(Object.keys(ctx).length === 3, 'Unexpected Option provided!');
+  assert(Object.keys(ctx).length === 2, 'Unexpected Option provided!');
   assert(ctx.treatAs === null || typeof ctx.treatAs === 'string');
   assert(typeof ctx.mergeStrategy === 'function');
-  assert(typeof ctx.compact === 'boolean');
 
   const currentContent = fs.existsSync(filepath)
     ? smartRead(filepath, { treatAs: ctx.treatAs })

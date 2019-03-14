@@ -44,18 +44,6 @@ describe('Testing smartWrite', () => {
     );
   });
 
-  it('Testing .xml (compact)', () => {
-    executeTest(
-      'file.xml',
-      {
-        data: { key: { _text: 'value' } },
-        meta: { spaceSelfClosing: false }
-      },
-      '<key>value</key>',
-      { compact: true }
-    );
-  });
-
   it('Testing .yml', () => {
     executeTest('file.yml', { key: 'value' }, 'key: value\n');
   });
