@@ -20,6 +20,30 @@ describe('Testing smartRead', () => {
     executeTest('file.json', '{"key":"value"}', { key: 'value' });
   });
 
+  it('Testing .xml', () => {
+    executeTest(
+      'file.xml',
+      '<key>value</key>',
+      {
+        data: {
+          elements: [
+            {
+              elements: [
+                {
+                  text: 'value',
+                  type: 'text'
+                }
+              ],
+              name: 'key',
+              type: 'element'
+            }
+          ]
+        },
+        meta: { spaceSelfClosing: false }
+      }
+    );
+  });
+
   it('Testing .yml', () => {
     executeTest('file.yml', 'key: value', { key: 'value' });
   });

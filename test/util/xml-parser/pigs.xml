@@ -1,0 +1,202 @@
+<pig-rescue>
+	<image-base>images</image-base>
+    <animal>
+    	<species>pot belly pig</species>
+    	<type>Cathy's Herd</type>
+        <name>Molly II</name>
+        <birth>February, 1998</birth>
+		<in-date>January, 2000</in-date>
+		<from>Middle Ave.</from>
+		<gender spay-neuter="yes">F</gender>
+		<info>Molly came from a place where an old, ill man had too many animals.
+              	The animals were seldom fed and rats would eat the newborn piglets.
+             	 When Molly was found at one week old, she was the only piglet of 
+              	her siblings who did not get stepped on by a cow. She is a sweet, 
+              	friendly pig who likes to hang out on Cathy's porch on the lounge 
+              	pad.
+		</info>
+		<picture>
+			<file>molly_th.jpg</file>
+			<description>Black pig</description>
+			<caption>Molly in the Pasture</caption>
+		</picture>
+	</animal>
+    
+	<animal>          
+		<species>pot belly pig</species>
+		<type>House Pig</type>
+		<name>Nigel</name>
+		<birth>June, 1991</birth>
+		<in-date>August, 1991</in-date>
+		<from>Breeder</from>
+		<gender spay-neuter="yes">M</gender>
+		<info>
+		 	Nigel was the first pig and the reason for the rescue in the
+		 	first place. He is 13 now and doing well, but takes a number 
+			of medications, as you can see below.
+		</info>
+        <picture>
+            <file>nigel_th.jpg</file>
+			<description>medium gray pig</description>
+			<caption>Nigel in the Hallway</caption>
+        </picture>
+        <medical>
+			<condition>Arthritis</condition>
+			<med>Synflex</med>
+			<dosage>1 ml</dosage>
+
+			<condition>Tusk/Jaw Infection</condition>
+            <med>Sulfamethoxazole Trimethoprim, USP</med>
+            <dosage>Double Strength 800 mg/160 mg</dosage>
+
+            <condition>Ulcer</condition>
+            <med>Pepcid A.C.</med>
+            <dosage>20 mg</dosage> 
+        </medical>
+    </animal>
+        
+    <animal> 
+        <species>pot belly pig</species>
+        <type>Barnyard</type>
+        <name>Jenny</name>
+		<birth>1997</birth>
+		<death>October 23, 2004</death>
+		<in-date>August, 2000</in-date>
+		<from>Owner Relinquish</from>
+		<sponsor>Patrick Goold</sponsor>
+		<gender spay-neuter="no">F</gender>
+        <info>Jenny was an exceptionally sweet little pig. She had a neurological
+              problem that made it difficult for her to tell her legs what she
+              wanted them to do. Her owner and sponsor volunteered every week
+              at the ranch, doing whatever was needed. Jenny is sorely missed 
+              every time we pass her empty pen.
+        </info>
+        <picture>
+            <file>jenny_th.jpg</file>
+			<description>Dark Gray pig with white highlight on nose</description>
+			<caption>Jenny in her bed</caption>
+        </picture>
+        <medical>
+            <condition>Arthritis</condition>
+            <med>Synflex</med>
+            <dosage>1 ml</dosage>
+            <condition>Neurological Disorder</condition>
+            <med>Prednisone</med>
+            <dosage>20 mg</dosage>
+        </medical>
+    </animal>                                           
+
+    <animal> 
+        <species>pot belly pig</species>
+        <type>Barnyard</type>
+        <name>Woody</name>
+		<birth>1996</birth>
+		<in-date>September, 2004</in-date>
+		<from>Owner Relinquish</from>
+		<sponsor>Guy</sponsor>
+		<gender spay-neuter="yes">M</gender>
+        <info>Due to his own medical problems, Guy had to place his buddy, Woody, at Belly
+              Draggers. He paid for Woody to be neutered and for his care for the 
+              rest of his life. Woody has so much personality! He became an instant
+              favorite, especially with Eva. He has now joined the rest of the herd
+              and has no trouble with the other pigs except Big Al, who wants to 
+              take him on every so often.
+        </info>
+        <picture>
+            <file>woody_th.jpg</file>
+			<description>Black pig with mouth open wide</description>
+			<caption>Woody: Mr. Handsome</caption>
+        </picture>
+    </animal>
+    
+    <animal> 
+        <species>pot belly pig</species>
+        <type>Barnyard</type>
+        <name>Missy</name>
+		<birth>Unknown, approx. 1993</birth>
+		<in-date>April, 1996</in-date>
+		<from>Intervention by third party</from>
+		<sponsor>The Wolosons</sponsor>
+		<gender spay-neuter="yes">F</gender>
+        <info>Eva got a call from a woman who said there were
+              two pigs at a movie set in Salinas who were living on cement
+              and didn’t have shade, food, or water on a regular basis.
+              She got the pigs to us and C.P.P.A. took the other pig.
+              Missy quickly became our “in–charge” pig.
+              She is sweet and affectionate with people, but very bossy with 
+              other pigs. If there is a belly rub or banana chip to be had,
+              she wants it first, thank you very much! We love her! 
+        </info>
+        <picture>
+            <file>missy_th.jpg</file>
+			<description>Black pig standing in pasture</description>
+			<caption>Missy in the pasture</caption>
+        </picture>
+        <medical>
+            <condition>Arthritis</condition>
+            <med>Max-Flex</med>
+            <dosage>1 tsp</dosage>
+        </medical>
+    </animal>
+    
+    <animal> 
+        <species>pot belly pig</species>
+        <type>Barnyard</type>
+        <name>Big Al</name>
+		<birth>1997</birth>
+		<in-date>July 20, 1999</in-date>
+		<from>Owner Relinquish</from>
+		<sponsor>Sterling Warner</sponsor>
+		<gender spay-neuter="yes">M</gender>
+        <info>Big Al was living at a Christmas tree farm in Morgan Hill in a 
+              small pen. He was not neutered, so he was aggressive and irritable.
+              When the owner’s husband got sick, she had to place Big Al in
+              a hurry, so she called Belly Draggers. Big Al was immediately
+              “fixed” and separated from the rest of the herd until
+              he was “shooting blanks.” He was aggressive for about a
+              year before he calmed down because he was neutered so late in life; 
+              meanwhile, the girls in the herd found that boar smell very
+              attractive. Now he’s a big sweetie and likes men especially.
+              He still has an inflated ego and tries unsuccessfully to fight his
+              way to the top of the herd. He’s a great pig, very vocal,
+              with lots of personality.
+        </info>
+        <picture>
+            <file>big_al_th.jpg</file>
+			<description>Very light gray pig in pasture</description>
+			<caption>Big Al in the pasture</caption>
+        </picture>
+    </animal>
+   
+    
+    <animal> 
+        <species>pot belly pig</species>
+        <type>Barnyard</type>
+        <name>Luli</name>
+		<birth>Unknown, approx. 1995</birth>
+		<in-date>July, 1996</in-date>
+		<from>San Martin Animal Shelter</from>
+    <sponsor>Ingrid Arnaz–Campos</sponsor>
+		<gender spay-neuter="No">F</gender>
+        <info>Luli was one of the first pigs at Belly Draggers. She came from 
+              the shelter, so she was either dropped off or running loose.
+              She has always been mostly blind. She know where everything is and
+              gets along fine. Luli has the “honor” of having the only
+              unplanned pregnancy Belly Draggers has ever had. Late one night,
+              an owner surrendered Bonnie and Spike. He said Spike was neutered, but
+              the next morning when it became light, it was apparent that he was 
+              not. Sometime in the middle of the night he visited Luli. Three months 
+              later Luli surprised everyone with Pigbert. As 
+              soon as he was weaned, he was adopted out and renamed Harley. Luli is 
+              very sweet and seems to take care of and spend time with the older 
+              pigs. She hangs out with Jessie now, spending most of the day in the 
+              shed with her.
+        </info>
+        <picture>
+            <file>luli_th.jpg</file>
+			<description>Luli with other pigs and Eva</description>
+			<caption>Luli, Eva and friends</caption>
+         </picture>
+    </animal>
+</pig-rescue>          
+                            
