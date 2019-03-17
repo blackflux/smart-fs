@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-module.exports = (dir) => {
+module.exports = (dirpath) => {
   const result = [];
 
-  const files = [dir];
+  const files = [dirpath];
   do {
     const filepath = files.pop();
     const stat = fs.lstatSync(filepath);
@@ -13,7 +13,7 @@ module.exports = (dir) => {
         .readdirSync(filepath)
         .forEach(f => files.push(path.join(filepath, f)));
     } else if (stat.isFile()) {
-      result.push(path.relative(dir, filepath));
+      result.push(path.relative(dirpath, filepath));
     }
   } while (files.length !== 0);
 
