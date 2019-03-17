@@ -26,6 +26,12 @@ A few notes:
   - Will prefer to match the exact file
   - Will return `null` when multiple possible extensions are found
 
+### walkDir(dirpath)
+
+Iteratively walk dirpath and return relative paths of all files contained.
+
+Will only return entries where `fs.lstatSync(...).isFile()` evaluates to true (this excludes symlinks).
+
 ### smartRead(filepath, options = { treatAs = null })
 
 Read and parse file based on file extension.
