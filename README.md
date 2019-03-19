@@ -32,6 +32,10 @@ Iteratively walk dirpath and return relative paths of all files contained.
 
 Will only return entries where `fs.lstatSync(...).isFile()` evaluates to true (this excludes symlinks).
 
+### cleaningDelete(filepath)
+
+Delete file and all empty parent directories.
+
 ### smartRead(filepath, options = { treatAs = null })
 
 Read and parse file based on file extension.
