@@ -39,11 +39,11 @@
   "homepage": "https://github.com/blackflux/smart-fs#readme",
   "devDependencies": {
     "@babel/cli": "7.2.3",
-    "@babel/core": "7.3.4",
-    "@babel/plugin-proposal-object-rest-spread": "7.3.4",
-    "@babel/plugin-transform-flow-comments": "7.2.0",
+    "@babel/core": "7.4.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.4.0",
+    "@babel/plugin-transform-flow-comments": "7.4.0",
     "@babel/preset-flow": "7.0.0",
-    "@babel/register": "7.0.0",
+    "@babel/register": "7.4.0",
     "babel-eslint": "10.0.1",
     "chai": "4.2.0",
     "coveralls": "3.0.3",
@@ -101,6 +101,6 @@
     "lodash.clonedeep": "4.5.0",
     "lodash.isequal": "4.5.0",
     "xml-js": "1.6.11",
-    "yaml-boost": "1.8.4"
+    "yaml-boost": "1.9.0"
   }
 }
