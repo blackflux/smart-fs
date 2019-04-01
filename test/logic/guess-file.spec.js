@@ -39,4 +39,9 @@ describe('Testing guessFile', () => {
     executeTest(['file.json.json'], 'file', null);
     executeTest(['file..json'], 'file', null);
   });
+
+  it('Testing parent folder missing', () => {
+    executeTest([], 'folder/file', null);
+    executeTest(['folder'], 'folder/file', null);
+  });
 });

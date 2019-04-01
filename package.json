@@ -47,11 +47,11 @@
     "babel-eslint": "10.0.1",
     "chai": "4.2.0",
     "coveralls": "3.0.3",
-    "eslint": "5.15.3",
+    "eslint": "5.16.0",
     "js-gardener": "1.38.2",
     "nyc": "13.3.0",
     "semantic-release": "15.13.3",
-    "tmp": "0.0.33"
+    "tmp": "0.1.0"
   },
   "nyc": {
     "tempDir": "./coverage/.nyc_output",
