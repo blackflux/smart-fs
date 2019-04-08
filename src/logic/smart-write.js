@@ -23,7 +23,7 @@ module.exports = (filepath, content, options = {}) => {
   assert(typeof ctx.mergeStrategy === 'function');
 
   const currentContent = fs.existsSync(filepath)
-    ? smartRead(filepath, { treatAs: ctx.treatAs })
+    ? smartRead(filepath, { treatAs: ctx.treatAs || (getExt(filepath) === 'js' ? 'txt' : null) })
     : null;
 
   const mergedContent = currentContent == null
