@@ -48,6 +48,24 @@ describe('Testing smartWrite', () => {
     executeTest('file.yml', { key: 'value' }, 'key: value\n');
   });
 
+  it('Testing .js rewrite', () => {
+    const opt = {
+      mergeStrategy: (existing, changeset) => existing.concat(changeset)
+    };
+    executeTest(
+      'file.js',
+      ['module.exports.a = "a";'],
+      'module.exports.a = "a";\n',
+      opt
+    );
+    executeTest(
+      'file.js',
+      ['module.exports.b = "b";'],
+      'module.exports.a = "a";\nmodule.exports.b = "b";\n',
+      opt
+    );
+  });
+
   it('Testing default', () => {
     executeTest('file.txt', ['line1', 'line2'], 'line1\nline2\n');
   });
