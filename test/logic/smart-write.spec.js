@@ -74,6 +74,10 @@ describe('Testing smartWrite', () => {
     executeTest('file.txt', { key: 'value' }, '{\n  "key": "value"\n}\n', { treatAs: 'json' });
   });
 
+  it('Testing treatAs null', () => {
+    executeTest('file.txt', ['line1', 'line2'], 'line1\nline2\n', { treatAs: null });
+  });
+
   it('Testing unchanged content', () => {
     executeTest('file.txt', ['line1', 'line2'], 'line1\nline2\n');
     executeTest('file.txt', ['line1', 'line2'], 'line1\nline2\n');
