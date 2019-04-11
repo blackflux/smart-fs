@@ -15,10 +15,11 @@ module.exports = (filepath, content, options = {}) => {
   assert(options instanceof Object && !Array.isArray(options));
 
   const ext = getExt(filepath);
-  const ctx = Object.assign({
-    treatAs: ext === 'js' ? 'txt' : ext,
-    mergeStrategy: (existing, changeset) => changeset
-  }, options);
+  const ctx = Object.assign(
+    { mergeStrategy: (existing, changeset) => changeset },
+    options,
+    { treatAs: options.treatAs || (ext === 'js' ? 'txt' : ext) }
+  );
   assert(Object.keys(ctx).length === 2, 'Unexpected Option provided!');
   assert(typeof ctx.treatAs === 'string');
   assert(typeof ctx.mergeStrategy === 'function');
