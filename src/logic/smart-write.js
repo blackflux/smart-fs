@@ -16,15 +16,26 @@ module.exports = (filepath, content, options = {}) => {
 
   const ext = getExt(filepath);
   const ctx = Object.assign(
-    { mergeStrategy: (existing, changeset) => changeset },
+    {
+      mergeStrategy: (existing, changeset) => changeset,
+      create: true
+    },
     options,
-    { treatAs: options.treatAs || (ext === 'js' ? 'txt' : ext) }
+    {
+      treatAs: options.treatAs || (ext === 'js' ? 'txt' : ext)
+    }
   );
-  assert(Object.keys(ctx).length === 2, 'Unexpected Option provided!');
+  assert(Object.keys(ctx).length === 3, 'Unexpected Option provided!');
   assert(typeof ctx.treatAs === 'string');
   assert(typeof ctx.mergeStrategy === 'function');
+  assert(typeof ctx.create === 'boolean');
 
-  const currentContent = fs.existsSync(filepath)
+  const targetExists = fs.existsSync(filepath);
+  if (ctx.create !== true && !targetExists) {
+    return false;
+  }
+
+  const currentContent = targetExists
     ? smartRead(filepath, { treatAs: ctx.treatAs })
     : null;
 
