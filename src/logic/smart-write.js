@@ -14,19 +14,13 @@ module.exports = (filepath, content, options = {}) => {
   assert(content instanceof Object);
   assert(options instanceof Object && !Array.isArray(options));
 
-  const ext = getExt(filepath);
-  const ctx = Object.assign(
-    {
-      mergeStrategy: (existing, changeset) => changeset,
-      create: true
-    },
-    options,
-    {
-      treatAs: options.treatAs || (ext === 'js' ? 'txt' : ext)
-    }
-  );
+  const ctx = Object.assign({
+    mergeStrategy: (existing, changeset) => changeset,
+    create: true,
+    treatAs: null
+  }, options);
   assert(Object.keys(ctx).length === 3, 'Unexpected Option provided!');
-  assert(typeof ctx.treatAs === 'string');
+  assert(ctx.treatAs === null || typeof ctx.treatAs === 'string');
   assert(typeof ctx.mergeStrategy === 'function');
   assert(typeof ctx.create === 'boolean');
 
@@ -35,8 +29,11 @@ module.exports = (filepath, content, options = {}) => {
     return false;
   }
 
+  const ext = getExt(filepath);
   const currentContent = targetExists
-    ? smartRead(filepath, { treatAs: ctx.treatAs })
+    ? smartRead(filepath, {
+      treatAs: ctx.treatAs === null && ext === 'js' ? 'txt' : ctx.treatAs
+    })
     : null;
 
   const mergedContent = currentContent == null
@@ -46,7 +43,7 @@ module.exports = (filepath, content, options = {}) => {
   if (!isEqual(currentContent, mergedContent)) {
     fsExtra.ensureDirSync(path.dirname(filepath));
     let contentString;
-    switch (ctx.treatAs) {
+    switch (ctx.treatAs || ext) {
       case 'yml':
       case 'yaml':
         contentString = yaml.dump(mergedContent);
