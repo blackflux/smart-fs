@@ -70,6 +70,11 @@ describe('Testing smartWrite', () => {
     executeTest('file.txt', ['line1', 'line2'], 'line1\nline2\n');
   });
 
+  it('Testing create=false', () => {
+    expect(smartWrite(path.join(dir, 'file1.txt'), ['line1'], { create: false }))
+      .to.equal(false);
+  });
+
   it('Testing treatAs', () => {
     executeTest('file.txt', { key: 'value' }, '{\n  "key": "value"\n}\n', { treatAs: 'json' });
   });
