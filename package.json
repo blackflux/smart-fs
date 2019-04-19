@@ -41,8 +41,8 @@
     "@babel/core": "7.4.3",
     "@babel/plugin-proposal-object-rest-spread": "7.4.3",
     "@babel/register": "7.4.0",
-    "@blackflux/eslint-plugin-rules": "1.0.2",
-    "@blackflux/robo-config-plugin": "1.7.3",
+    "@blackflux/eslint-plugin-rules": "1.0.3",
+    "@blackflux/robo-config-plugin": "1.7.4",
     "babel-eslint": "10.0.1",
     "chai": "4.2.0",
     "coveralls": "3.0.3",
@@ -99,6 +99,6 @@
     "lodash.clonedeep": "4.5.0",
     "lodash.isequal": "4.5.0",
     "xml-js": "1.6.11",
-    "yaml-boost": "1.9.1"
+    "yaml-boost": "1.9.2"
   }
 }
