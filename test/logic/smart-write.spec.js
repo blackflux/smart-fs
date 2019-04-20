@@ -20,6 +20,10 @@ describe('Testing smartWrite', () => {
     executeTest('file.json', { key: 'value' }, '{\n  "key": "value"\n}\n');
   });
 
+  it('Testing .json (pretty)', () => {
+    executeTest('file.json', { key: 'value' }, '{"key": "value"}\n', { pretty: true });
+  });
+
   it('Testing .xml', () => {
     executeTest(
       'file.xml',

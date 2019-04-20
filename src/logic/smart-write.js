@@ -4,6 +4,7 @@ const path = require('path');
 const isEqual = require('lodash.isequal');
 const cloneDeep = require('lodash.clonedeep');
 const fsExtra = require('fs-extra');
+const stringify = require('json-stringify-pretty-compact');
 const yaml = require('yaml-boost');
 const smartRead = require('./smart-read');
 const xmlParser = require('../util/xml-parser');
@@ -15,14 +16,16 @@ module.exports = (filepath, content, options = {}) => {
   assert(options instanceof Object && !Array.isArray(options));
 
   const ctx = Object.assign({
+    treatAs: null,
     mergeStrategy: (existing, changeset) => changeset,
     create: true,
-    treatAs: null
+    pretty: false
   }, options);
-  assert(Object.keys(ctx).length === 3, 'Unexpected Option provided!');
+  assert(Object.keys(ctx).length === 4, 'Unexpected Option provided!');
   assert(ctx.treatAs === null || typeof ctx.treatAs === 'string');
   assert(typeof ctx.mergeStrategy === 'function');
   assert(typeof ctx.create === 'boolean');
+  assert(typeof ctx.pretty === 'boolean');
 
   const targetExists = fs.existsSync(filepath);
   if (ctx.create !== true && !targetExists) {
@@ -52,7 +55,9 @@ module.exports = (filepath, content, options = {}) => {
         contentString = xmlParser.stringify(mergedContent, options);
         break;
       case 'json':
-        contentString = `${JSON.stringify(mergedContent, null, 2)}\n`;
+        contentString = `${ctx.pretty
+          ? stringify(mergedContent)
+          : JSON.stringify(mergedContent, null, 2)}\n`;
         break;
       default:
         assert(Array.isArray(mergedContent));

@@ -52,7 +52,7 @@ Note that the [required cache](https://nodejs.org/api/modules.html#modules_requi
 
 To ignore file extension and force treat the file as a certain type, you can pass the option `treatAs` as e.g. `json`.
 
-### smartWrite(filepath. content, options = { treatAs = null, mergeStrategy = (existing, changeset) => changeset, create = true })
+### smartWrite(filepath. content, options = { treatAs = null, mergeStrategy = (existing, changeset) => changeset, create = true, pretty = false })
 
 Serialize and write content to file based on file extension.
 
@@ -74,6 +74,8 @@ The `mergeStrategy` option can be used to customize how the new content is merge
 By default the file is simply overwritten.
 
 When `create` is set to `false` no action is taken if the file does not already exist.
+
+When `pretty` is set to `true`, the output is formatted more compact.
 
 ## Important
 
