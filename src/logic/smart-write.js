@@ -6,10 +6,10 @@ const cloneDeep = require('lodash.clonedeep');
 const fsExtra = require('fs-extra');
 const stringify = require('json-stringify-pretty-compact');
 const yaml = require('yaml-boost');
+const objectAlign = require('object-align');
 const smartRead = require('./smart-read');
 const xmlParser = require('../util/xml-parser');
 const getExt = require('../util/get-ext');
-const objectOrder = require('../../src/util/object-order');
 
 module.exports = (filepath, content, options = {}) => {
   assert(typeof filepath === 'string');
@@ -47,6 +47,9 @@ module.exports = (filepath, content, options = {}) => {
 
   if (!isEqual(currentContent, mergedContent)) {
     fsExtra.ensureDirSync(path.dirname(filepath));
+    if (ctx.keepOrder) {
+      objectAlign(mergedContent, currentContent);
+    }
     let contentString;
     switch (ctx.treatAs || ext) {
       case 'yml':
@@ -57,12 +60,9 @@ module.exports = (filepath, content, options = {}) => {
         contentString = xmlParser.stringify(mergedContent, options);
         break;
       case 'json':
-        contentString = ctx.keepOrder
-          ? objectOrder(mergedContent, currentContent)
-          : mergedContent;
         contentString = `${ctx.pretty
-          ? stringify(contentString)
-          : JSON.stringify(contentString, null, 2)}\n`;
+          ? stringify(mergedContent)
+          : JSON.stringify(mergedContent, null, 2)}\n`;
         break;
       default:
         assert(Array.isArray(mergedContent));
