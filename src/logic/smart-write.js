@@ -9,6 +9,7 @@ const yaml = require('yaml-boost');
 const smartRead = require('./smart-read');
 const xmlParser = require('../util/xml-parser');
 const getExt = require('../util/get-ext');
+const objectOrder = require('../../src/util/object-order');
 
 module.exports = (filepath, content, options = {}) => {
   assert(typeof filepath === 'string');
@@ -19,9 +20,10 @@ module.exports = (filepath, content, options = {}) => {
     treatAs: null,
     mergeStrategy: (existing, changeset) => changeset,
     create: true,
-    pretty: false
+    pretty: false,
+    keepOrder: true
   }, options);
-  assert(Object.keys(ctx).length === 4, 'Unexpected Option provided!');
+  assert(Object.keys(ctx).length === 5, 'Unexpected Option provided!');
   assert(ctx.treatAs === null || typeof ctx.treatAs === 'string');
   assert(typeof ctx.mergeStrategy === 'function');
   assert(typeof ctx.create === 'boolean');
@@ -55,9 +57,12 @@ module.exports = (filepath, content, options = {}) => {
         contentString = xmlParser.stringify(mergedContent, options);
         break;
       case 'json':
+        contentString = ctx.keepOrder
+          ? objectOrder(mergedContent, currentContent)
+          : mergedContent;
         contentString = `${ctx.pretty
-          ? stringify(mergedContent)
-          : JSON.stringify(mergedContent, null, 2)}\n`;
+          ? stringify(contentString)
+          : JSON.stringify(contentString, null, 2)}\n`;
         break;
       default:
         assert(Array.isArray(mergedContent));

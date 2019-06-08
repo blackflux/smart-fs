@@ -83,6 +83,18 @@ describe('Testing smartWrite', () => {
     executeTest('file.txt', { key: 'value' }, '{\n  "key": "value"\n}\n', { treatAs: 'json' });
   });
 
+  it('Testing keepOrder', () => {
+    expect(smartWrite(path.join(dir, 'f.json'), { k1: 'v1', k2: 'v2', x: 1 })).to.equal(true);
+    expect(fs.readFileSync(path.join(dir, 'f.json'), 'utf8'))
+      .to.deep.equal('{\n  "k1": "v1",\n  "k2": "v2",\n  "x": 1\n}\n');
+    expect(smartWrite(path.join(dir, 'f.json'), { k2: 'v2', k1: 'v1', x: 2 })).to.equal(true);
+    expect(fs.readFileSync(path.join(dir, 'f.json'), 'utf8'))
+      .to.deep.equal('{\n  "k1": "v1",\n  "k2": "v2",\n  "x": 2\n}\n');
+    expect(smartWrite(path.join(dir, 'f.json'), { k2: 'v1', k1: 'v2', x: 3 }, { keepOrder: false })).to.equal(true);
+    expect(fs.readFileSync(path.join(dir, 'f.json'), 'utf8'))
+      .to.deep.equal('{\n  "k2": "v1",\n  "k1": "v2",\n  "x": 3\n}\n');
+  });
+
   it('Testing treatAs null', () => {
     executeTest('file.txt', ['line1', 'line2'], 'line1\nline2\n', { treatAs: null });
   });
