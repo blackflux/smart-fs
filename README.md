@@ -78,7 +78,7 @@ When `create` is set to `false` no action is taken if the file does not already 
 When `pretty` is set to `true`, the output is formatted more compact.
 
 When `keepOrder` is set to `true` and a file is overwritten, 
-the new content is ordered according to the existing content (e.g. `json` and `yml`)
+the new content is ordered according to the existing content (e.g. for `json` and `yml`)
 
 ## Important
 
