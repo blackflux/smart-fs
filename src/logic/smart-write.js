@@ -6,6 +6,7 @@ const cloneDeep = require('lodash.clonedeep');
 const fsExtra = require('fs-extra');
 const stringify = require('json-stringify-pretty-compact');
 const yaml = require('yaml-boost');
+const objectAlign = require('object-align');
 const smartRead = require('./smart-read');
 const xmlParser = require('../util/xml-parser');
 const getExt = require('../util/get-ext');
@@ -19,9 +20,10 @@ module.exports = (filepath, content, options = {}) => {
     treatAs: null,
     mergeStrategy: (existing, changeset) => changeset,
     create: true,
-    pretty: false
+    pretty: false,
+    keepOrder: true
   }, options);
-  assert(Object.keys(ctx).length === 4, 'Unexpected Option provided!');
+  assert(Object.keys(ctx).length === 5, 'Unexpected Option provided!');
   assert(ctx.treatAs === null || typeof ctx.treatAs === 'string');
   assert(typeof ctx.mergeStrategy === 'function');
   assert(typeof ctx.create === 'boolean');
@@ -45,6 +47,9 @@ module.exports = (filepath, content, options = {}) => {
 
   if (!isEqual(currentContent, mergedContent)) {
     fsExtra.ensureDirSync(path.dirname(filepath));
+    if (ctx.keepOrder) {
+      objectAlign(mergedContent, currentContent);
+    }
     let contentString;
     switch (ctx.treatAs || ext) {
       case 'yml':
