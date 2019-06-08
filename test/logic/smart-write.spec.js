@@ -83,6 +83,22 @@ describe('Testing smartWrite', () => {
     executeTest('file.txt', { key: 'value' }, '{\n  "key": "value"\n}\n', { treatAs: 'json' });
   });
 
+  it('Testing keepOrder', () => {
+    const verify = (input, output, options = {}) => {
+      smartWrite(path.join(dir, 'f.json'), input, options);
+      expect(fs.readFileSync(path.join(dir, 'f.json'), 'utf8'))
+        .to.deep.equal(`${JSON.stringify(output, null, 2)}\n`);
+    };
+
+    const d1 = { k1: 'v1', k2: 'v2', x: 1 };
+    const d2 = { k2: 'v2', k1: 'v1', x: 2 };
+    const d2orderedAsD1 = { k1: 'v1', k2: 'v2', x: 2 };
+    const d3 = { k2: 'v2', k1: 'v1', x: 3 };
+    verify(d1, d1);
+    verify(d2, d2orderedAsD1);
+    verify(d3, d3, { keepOrder: false });
+  });
+
   it('Testing treatAs null', () => {
     executeTest('file.txt', ['line1', 'line2'], 'line1\nline2\n', { treatAs: null });
   });
