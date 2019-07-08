@@ -47,7 +47,7 @@
     "chai": "4.2.0",
     "coveralls": "3.0.4",
     "eslint": "6.0.1",
-    "js-gardener": "2.0.40",
+    "js-gardener": "2.0.41",
     "nyc": "14.1.1",
     "semantic-release": "15.13.18",
     "tmp": "0.1.0"
@@ -101,6 +101,6 @@
     "lodash.isequal": "4.5.0",
     "object-align": "1.0.0",
     "xml-js": "1.6.11",
-    "yaml-boost": "1.9.7"
+    "yaml-boost": "1.9.8"
   }
 }
