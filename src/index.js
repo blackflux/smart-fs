@@ -1,3 +1,6 @@
+const fs = require('fs');
+
+module.exports = { ...fs };
 
 module.exports.guessFile = require('./logic/guess-file');
 module.exports.walkDir = require('./logic/walk-dir');
