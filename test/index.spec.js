@@ -9,7 +9,8 @@ describe('Testing Integration', () => {
       'walkDir',
       'cleaningDelete',
       'smartRead',
-      'smartWrite'
+      'smartWrite',
+      'fs'
     ]);
   });
 });
