@@ -11,6 +11,8 @@
 
 Abstraction Layer for File Management.
 
+Drop in replacement for [fs](https://nodejs.org/api/fs.html).
+
 ## Getting Started
 
     $ npm install --save smart-fs
