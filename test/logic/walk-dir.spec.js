@@ -12,7 +12,7 @@ describe('Testing walkDir', () => {
   });
 
   const executeTest = (files) => {
-    files.forEach(f => smartWrite(path.join(dir, f), []));
+    files.forEach((f) => smartWrite(path.join(dir, f), []));
     expect(walkDir(dir)).to.deep.equal(files);
   };
 

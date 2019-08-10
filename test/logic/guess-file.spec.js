@@ -11,7 +11,7 @@ describe('Testing guessFile', () => {
   });
 
   const executeTest = (files, input, expected) => {
-    files.forEach(f => fs.writeFileSync(path.join(dir, f), ''));
+    files.forEach((f) => fs.writeFileSync(path.join(dir, f), ''));
     const filepath = path.join(dir, input);
     expect(guessFile(filepath)).to.equal(typeof expected === 'string' ? path.join(dir, expected) : expected);
   };
