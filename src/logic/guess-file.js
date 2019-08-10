@@ -9,7 +9,7 @@ module.exports = (filepath) => {
   }
   const relevantFiles = fs
     .readdirSync(dirname)
-    .filter(f => f === basename || (f.startsWith(`${basename}.`) && f.lastIndexOf('.') <= basename.length));
+    .filter((f) => f === basename || (f.startsWith(`${basename}.`) && f.lastIndexOf('.') <= basename.length));
   if (relevantFiles.includes(basename)) {
     return filepath;
   }

@@ -16,13 +16,14 @@ module.exports = (filepath, content, options = {}) => {
   assert(content instanceof Object);
   assert(options instanceof Object && !Array.isArray(options));
 
-  const ctx = Object.assign({
+  const ctx = {
     treatAs: null,
     mergeStrategy: (existing, changeset) => changeset,
     create: true,
     pretty: false,
-    keepOrder: true
-  }, options);
+    keepOrder: true,
+    ...options
+  };
   assert(Object.keys(ctx).length === 5, 'Unexpected Option provided!');
   assert(ctx.treatAs === null || typeof ctx.treatAs === 'string');
   assert(typeof ctx.mergeStrategy === 'function');
