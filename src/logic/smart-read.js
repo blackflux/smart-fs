@@ -9,9 +9,7 @@ module.exports = (filepath, options = {}) => {
   assert(typeof filepath === 'string');
   assert(options instanceof Object && !Array.isArray(options));
 
-  const ctx = Object.assign({
-    treatAs: null
-  }, options);
+  const ctx = { treatAs: null, ...options };
   assert(Object.keys(ctx).length === 1, 'Unexpected Option provided!');
   assert(ctx.treatAs === null || typeof ctx.treatAs === 'string');
 
