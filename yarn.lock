@@ -175,10 +175,10 @@
   dependencies:
     smart-fs "1.9.2"
 
-"@blackflux/robo-config-plugin@2.4.3":
-  version "2.4.3"
-  resolved "https://registry.yarnpkg.com/@blackflux/robo-config-plugin/-/robo-config-plugin-2.4.3.tgz#f1453ab8a575c9574cba1263a1c3cddcdd12ce36"
-  integrity sha512-DQU+vmV+0IQ+XsYB+FQZiv18hfrX+mU6gHmO76bb9SfUc2uoN5TVtCNb7+ylFjht5yp72ZUyKz7luk4WPocwPQ==
+"@blackflux/robo-config-plugin@2.4.4":
+  version "2.4.4"
+  resolved "https://registry.yarnpkg.com/@blackflux/robo-config-plugin/-/robo-config-plugin-2.4.4.tgz#af85de73343ff6e1b5c3409a994e139c77bb4145"
+  integrity sha512-lJXhk/BvcH6xyD0+l3OrH+8vKUMKu1kVDSYxDOln/K6fZwdSGyUYwhh2lFVNvtEYXoqjt34GV9kDrcGS7veKVg==
 
 "@hapi/address@2.x.x":
   version "2.0.0"
@@ -7409,6 +7409,16 @@ yaml-boost@1.9.10:
   version "1.9.10"
   resolved "https://registry.yarnpkg.com/yaml-boost/-/yaml-boost-1.9.10.tgz#4a9bc4a092576389c680fe0bc6033f3a2bdcfdb2"
   integrity sha512-MZMcHMzKzL1Y9MVj6vO2Txk1TRBojlvjXsRBcsgkk08OxL3tuAa+H8pZXF4y5kOLlZfVYusrDZmOhog1hiHsWw==
+  dependencies:
+    js-yaml "3.13.1"
+    lodash.get "4.4.2"
+    lodash.mergewith "4.6.2"
+    lodash.set "4.3.2"
+
+yaml-boost@1.9.11:
+  version "1.9.11"
+  resolved "https://registry.yarnpkg.com/yaml-boost/-/yaml-boost-1.9.11.tgz#a0b00c158290d1c284a7a5b0b870e267c7165976"
+  integrity sha512-OkoXmRbHUL0kIP6BCVRyUNn3XOZIvelwfqP9SePc7HzCljP73XVA9CT+PuEuFF0T6C1ldW23It9p8J1nT7acOQ==
   dependencies:
     js-yaml "3.13.1"
     lodash.get "4.4.2"
