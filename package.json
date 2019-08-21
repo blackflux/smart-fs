@@ -60,7 +60,7 @@
     "eslint-plugin-markdown": "1.0.0",
     "eslint-plugin-mocha": "6.0.0",
     "js-gardener": "2.0.75",
-    "node-tdd": "2.0.3",
+    "node-tdd": "2.0.4",
     "nyc": "14.1.1",
     "semantic-release": "15.13.21"
   },
@@ -113,6 +113,6 @@
     "lodash.isequal": "4.5.0",
     "object-align": "1.0.6",
     "xml-js": "1.6.11",
-    "yaml-boost": "1.9.13"
+    "yaml-boost": "1.9.14"
   }
 }
