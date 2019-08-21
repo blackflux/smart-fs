@@ -1,17 +1,17 @@
 const fs = require('fs');
 const path = require('path');
 const expect = require('chai').expect;
-const tmp = require('tmp');
+const { describe } = require('node-tdd');
 const smartRead = require('../../src/logic/smart-read');
 
-describe('Testing smartRead', () => {
-  let dir;
-  beforeEach(() => {
-    dir = tmp.dirSync({ keep: false, unsafeCleanup: true }).name;
+describe('Testing smartRead', { useTmpDir: true }, () => {
+  let tmpDir;
+  beforeEach(({ dir }) => {
+    tmpDir = dir;
   });
 
   const executeTest = (filename, content, expected, options) => {
-    const filepath = path.join(dir, filename);
+    const filepath = path.join(tmpDir, filename);
     fs.writeFileSync(filepath, content, 'utf8');
     expect(smartRead(filepath, options)).to.deep.equal(expected);
   };
