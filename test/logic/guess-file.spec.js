@@ -1,19 +1,19 @@
 const fs = require('fs');
 const path = require('path');
 const expect = require('chai').expect;
-const tmp = require('tmp');
+const { describe } = require('node-tdd');
 const guessFile = require('../../src/logic/guess-file');
 
-describe('Testing guessFile', () => {
-  let dir;
-  beforeEach(() => {
-    dir = tmp.dirSync({ keep: false, unsafeCleanup: true }).name;
+describe('Testing guessFile', { useTmpDir: true }, () => {
+  let tmpDir;
+  beforeEach(({ dir }) => {
+    tmpDir = dir;
   });
 
   const executeTest = (files, input, expected) => {
-    files.forEach((f) => fs.writeFileSync(path.join(dir, f), ''));
-    const filepath = path.join(dir, input);
-    expect(guessFile(filepath)).to.equal(typeof expected === 'string' ? path.join(dir, expected) : expected);
+    files.forEach((f) => fs.writeFileSync(path.join(tmpDir, f), ''));
+    const filepath = path.join(tmpDir, input);
+    expect(guessFile(filepath)).to.equal(typeof expected === 'string' ? path.join(tmpDir, expected) : expected);
   };
 
   it('Testing exact multi-match', () => {

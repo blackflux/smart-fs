@@ -1,17 +1,17 @@
 const fs = require('fs');
 const path = require('path');
 const expect = require('chai').expect;
-const tmp = require('tmp');
+const { describe } = require('node-tdd');
 const smartWrite = require('../../src/logic/smart-write');
 
-describe('Testing smartWrite', () => {
-  let dir;
-  beforeEach(() => {
-    dir = tmp.dirSync({ keep: false, unsafeCleanup: true }).name;
+describe('Testing smartWrite', { useTmpDir: true }, () => {
+  let tmpDir;
+  beforeEach(({ dir }) => {
+    tmpDir = dir;
   });
 
   const executeTest = (filename, content, expected, options) => {
-    const filepath = path.join(dir, filename);
+    const filepath = path.join(tmpDir, filename);
     smartWrite(filepath, content, options);
     expect(fs.readFileSync(filepath, 'utf8')).to.equal(expected);
   };
@@ -75,7 +75,7 @@ describe('Testing smartWrite', () => {
   });
 
   it('Testing create=false', () => {
-    expect(smartWrite(path.join(dir, 'file1.txt'), ['line1'], { create: false }))
+    expect(smartWrite(path.join(tmpDir, 'file1.txt'), ['line1'], { create: false }))
       .to.equal(false);
   });
 
@@ -85,8 +85,8 @@ describe('Testing smartWrite', () => {
 
   it('Testing keepOrder', () => {
     const verify = (input, output, options = {}) => {
-      smartWrite(path.join(dir, 'f.json'), input, options);
-      expect(fs.readFileSync(path.join(dir, 'f.json'), 'utf8'))
+      smartWrite(path.join(tmpDir, 'f.json'), input, options);
+      expect(fs.readFileSync(path.join(tmpDir, 'f.json'), 'utf8'))
         .to.deep.equal(`${JSON.stringify(output, null, 2)}\n`);
     };
 

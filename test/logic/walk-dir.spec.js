@@ -1,19 +1,19 @@
 const fs = require('fs');
 const path = require('path');
 const expect = require('chai').expect;
-const tmp = require('tmp');
+const { describe } = require('node-tdd');
 const walkDir = require('../../src/logic/walk-dir');
 const smartWrite = require('../../src/logic/smart-write');
 
-describe('Testing walkDir', () => {
-  let dir;
-  beforeEach(() => {
-    dir = tmp.dirSync({ keep: false, unsafeCleanup: true }).name;
+describe('Testing walkDir', { useTmpDir: true }, () => {
+  let tmpDir;
+  beforeEach(({ dir }) => {
+    tmpDir = dir;
   });
 
   const executeTest = (files) => {
-    files.forEach((f) => smartWrite(path.join(dir, f), []));
-    expect(walkDir(dir)).to.deep.equal(files);
+    files.forEach((f) => smartWrite(path.join(tmpDir, f), []));
+    expect(walkDir(tmpDir)).to.deep.equal(files);
   };
 
   it('Testing nested files', () => {
@@ -21,7 +21,7 @@ describe('Testing walkDir', () => {
   });
 
   it('Testing excluding symlink', () => {
-    fs.symlinkSync(dir, path.join(dir, 'link'));
+    fs.symlinkSync(tmpDir, path.join(tmpDir, 'link'));
     executeTest([]);
   });
 });
