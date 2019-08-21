@@ -1,5 +1,6 @@
 const path = require('path');
 const expect = require('chai').expect;
+const { describe } = require('node-tdd');
 const getExt = require('../../src/util/get-ext');
 
 describe('Testing get-ext.js', () => {
