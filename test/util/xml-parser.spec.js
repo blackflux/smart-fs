@@ -12,6 +12,7 @@ describe('Testing xml-parser.js', () => {
     expect(content).to.equal(stringified);
   };
 
+  // eslint-disable-next-line mocha/no-setup-in-describe
   fs.readdirSync(path.join(__dirname, 'xml-parser')).forEach((f) => {
     it(`Testing ${f}`, () => {
       executeTest(path.join(__dirname, 'xml-parser', f));
