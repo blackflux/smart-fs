@@ -56,7 +56,7 @@ To ignore file extension and force treat the file as a certain type, you can pas
 
 To simply load yml files without resolving them pass `resolve` as `false`
 
-### smartWrite(filepath. content, options = { treatAs = null, mergeStrategy = (existing, changeset) => changeset, create = true, pretty = false, keepOrder = true })
+### smartWrite(filepath. content, options = { treatAs = null, mergeStrategy = (existing, changeset) => changeset, create = true, pretty = false, keepOrder = true, resolve = false })
 
 Serialize and write content to file based on file extension.
 
@@ -83,6 +83,8 @@ When `pretty` is set to `true`, the output is formatted more compact.
 
 When `keepOrder` is set to `true` and a file is overwritten, 
 the new content is ordered according to the existing content (e.g. for `json` and `yml`)
+
+To `resolve` the original file before overwrite merging pass the option as `true`.
 
 ## Important
 
