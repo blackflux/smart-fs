@@ -38,7 +38,7 @@ Will only return entries where `fs.lstatSync(...).isFile()` evaluates to true (t
 
 Delete file and all empty parent directories.
 
-### smartRead(filepath, options = { treatAs = null })
+### smartRead(filepath, options = { treatAs = null, resolve = true })
 
 Read and parse file based on file extension.
 
@@ -53,6 +53,8 @@ The following extensions are handled in order:
 Note that the [required cache](https://nodejs.org/api/modules.html#modules_require_cache) is not automatically invalidated when loading cached `.js` files.
 
 To ignore file extension and force treat the file as a certain type, you can pass the option `treatAs` as e.g. `json`.
+
+To simply load yml files without resolving them pass `resolve` as `false`
 
 ### smartWrite(filepath. content, options = { treatAs = null, mergeStrategy = (existing, changeset) => changeset, create = true, pretty = false, keepOrder = true })
 

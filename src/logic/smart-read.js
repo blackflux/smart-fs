@@ -1,6 +1,7 @@
 const assert = require('assert');
 const fs = require('fs');
-const yaml = require('yaml-boost');
+const yamlBoost = require('yaml-boost');
+const yaml = require('js-yaml');
 const xmlParser = require('../util/xml-parser');
 const getExt = require('../util/get-ext');
 
@@ -9,9 +10,10 @@ module.exports = (filepath, options = {}) => {
   assert(typeof filepath === 'string');
   assert(options instanceof Object && !Array.isArray(options));
 
-  const ctx = { treatAs: null, ...options };
-  assert(Object.keys(ctx).length === 1, 'Unexpected Option provided!');
+  const ctx = { treatAs: null, resolve: true, ...options };
+  assert(Object.keys(ctx).length === 2, 'Unexpected Option provided!');
   assert(ctx.treatAs === null || typeof ctx.treatAs === 'string');
+  assert(typeof ctx.resolve === 'boolean');
 
   let result;
   switch (ctx.treatAs || getExt(filepath)) {
@@ -23,7 +25,9 @@ module.exports = (filepath, options = {}) => {
       break;
     case 'yml':
     case 'yaml':
-      result = yaml.load(filepath, {});
+      result = ctx.resolve
+        ? yamlBoost.load(filepath, {})
+        : yaml.load(fs.readFileSync(filepath, 'utf8'));
       break;
     case 'js':
       // eslint-disable-next-line import/no-dynamic-require,global-require
