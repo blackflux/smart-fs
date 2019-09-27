@@ -44,8 +44,12 @@ describe('Testing smartRead', { useTmpDir: true }, () => {
     );
   });
 
-  it('Testing .yml', () => {
-    executeTest('file.yml', 'key: value', { key: 'value' });
+  it('Testing .yml (resolve)', () => {
+    executeTest('file.yml', '<<<:\n  - key: value', { key: 'value' });
+  });
+
+  it('Testing .yml (no resolve)', () => {
+    executeTest('file.yml', '<<<:\n  - key: value', { '<<<': [{ key: 'value' }] }, { resolve: false });
   });
 
   it('Testing .js', () => {
