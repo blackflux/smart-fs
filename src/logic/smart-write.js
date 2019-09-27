@@ -22,13 +22,16 @@ module.exports = (filepath, content, options = {}) => {
     create: true,
     pretty: false,
     keepOrder: true,
+    resolve: false,
     ...options
   };
-  assert(Object.keys(ctx).length === 5, 'Unexpected Option provided!');
+  assert(Object.keys(ctx).length === 6, 'Unexpected Option provided!');
   assert(ctx.treatAs === null || typeof ctx.treatAs === 'string');
   assert(typeof ctx.mergeStrategy === 'function');
   assert(typeof ctx.create === 'boolean');
   assert(typeof ctx.pretty === 'boolean');
+  assert(typeof ctx.keepOrder === 'boolean');
+  assert(typeof ctx.resolve === 'boolean');
 
   const targetExists = fs.existsSync(filepath);
   if (ctx.create !== true && !targetExists) {
@@ -38,7 +41,8 @@ module.exports = (filepath, content, options = {}) => {
   const ext = getExt(filepath);
   const currentContent = targetExists
     ? smartRead(filepath, {
-      treatAs: ctx.treatAs === null && ext === 'js' ? 'txt' : ctx.treatAs
+      treatAs: ctx.treatAs === null && ext === 'js' ? 'txt' : ctx.treatAs,
+      resolve: ctx.resolve
     })
     : null;
 
