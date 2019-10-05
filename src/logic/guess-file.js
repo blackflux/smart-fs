@@ -10,6 +10,7 @@ module.exports = (filepath, options = {}) => {
     exclude: [],
     ...options
   };
+  assert(Object.keys(ctx).length === 1, 'Unexpected Option provided!');
   assert(Array.isArray(ctx.exclude));
 
   const dirname = path.dirname(filepath);
