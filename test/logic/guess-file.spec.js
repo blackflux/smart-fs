@@ -10,10 +10,10 @@ describe('Testing guessFile', { useTmpDir: true }, () => {
     tmpDir = dir;
   });
 
-  const executeTest = (files, input, expected) => {
+  const executeTest = (files, input, expected, opts = undefined) => {
     files.forEach((f) => fs.writeFileSync(path.join(tmpDir, f), ''));
     const filepath = path.join(tmpDir, input);
-    expect(guessFile(filepath)).to.equal(typeof expected === 'string' ? path.join(tmpDir, expected) : expected);
+    expect(guessFile(filepath, opts)).to.equal(typeof expected === 'string' ? path.join(tmpDir, expected) : expected);
   };
 
   it('Testing exact multi-match', () => {
@@ -33,6 +33,10 @@ describe('Testing guessFile', { useTmpDir: true }, () => {
 
   it('Testing partial multi non-match', () => {
     executeTest(['file.json', 'file.yml'], 'file', null);
+  });
+
+  it('Testing partial multi but exclude has match', () => {
+    executeTest(['file.json', 'file.yml'], 'file', 'file.json', { exclude: ['yml'] });
   });
 
   it('Testing double extension', () => {

@@ -19,7 +19,7 @@ Drop in replacement for [fs](https://nodejs.org/api/fs.html).
 
 ## Functions
 
-### guessFile(filepath)
+### guessFile(filepath, { exclude = [] })
 
 Extends and returns filepath with the file extension as appropriate. Returns `null` if no good match was found.
 
@@ -27,6 +27,8 @@ A few notes:
   - Only extends extensions, not partial file names
   - Will prefer to match the exact file
   - Will return `null` when multiple possible extensions are found
+
+To exclude certain extensions from being matched provide them in the `exclude` option.
 
 ### walkDir(dirpath)
 
