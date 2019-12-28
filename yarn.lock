@@ -5177,6 +5177,11 @@ object-align@1.0.10:
   resolved "https://registry.yarnpkg.com/object-align/-/object-align-1.0.10.tgz#88acc804a7a8d168f0752263fff1b2503cb660d9"
   integrity sha512-WiZLaIy3m2zsFk8yFNZCWo66bkdLRbgTBLa4MK0W/wdk6vbYia6+xIZ8QD9j98fvMhRf31QunNQUfILD6wn6HA==
 
+object-align@1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/object-align/-/object-align-1.0.11.tgz#bf34cf06781c438da39ef81eea636213a23a3cdc"
+  integrity sha512-Rot2IoiS3yva4L4rYtkLc+kOtCQZxlBhEERrwyvyCb1KKK+hENYcHT5+vXsK3TOij/7m7eDNuNxxxUEmFTH2yw==
+
 object-assign@^4.0.1, object-assign@^4.1.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
