@@ -58,7 +58,7 @@
     "eslint-plugin-json": "2.0.1",
     "eslint-plugin-markdown": "1.0.1",
     "eslint-plugin-mocha": "6.2.2",
-    "js-gardener": "2.0.123",
+    "js-gardener": "2.0.125",
     "node-tdd": "2.5.24",
     "nyc": "15.0.0",
     "semantic-release": "15.14.0"
@@ -111,7 +111,7 @@
     "json-stringify-pretty-compact": "2.0.0",
     "lodash.clonedeep": "4.5.0",
     "lodash.isequal": "4.5.0",
-    "object-align": "1.0.10",
+    "object-align": "1.0.11",
     "xml-js": "1.6.11",
     "yaml-boost": "1.9.19"
   }
