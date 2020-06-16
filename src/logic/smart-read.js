@@ -5,7 +5,6 @@ const yaml = require('js-yaml');
 const xmlParser = require('../util/xml-parser');
 const getExt = require('../util/get-ext');
 
-
 module.exports = (filepath, options = {}) => {
   assert(typeof filepath === 'string');
   assert(options instanceof Object && !Array.isArray(options));
