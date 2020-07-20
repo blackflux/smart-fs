@@ -43,23 +43,23 @@
   },
   "homepage": "https://github.com/blackflux/smart-fs#readme",
   "devDependencies": {
-    "@babel/cli": "7.10.4",
-    "@babel/core": "7.10.4",
+    "@babel/cli": "7.10.5",
+    "@babel/core": "7.10.5",
     "@babel/plugin-proposal-object-rest-spread": "7.10.4",
-    "@babel/register": "7.10.4",
+    "@babel/register": "7.10.5",
     "@blackflux/eslint-plugin-rules": "1.3.31",
-    "@blackflux/robo-config-plugin": "3.5.1",
+    "@blackflux/robo-config-plugin": "3.5.2",
     "babel-eslint": "10.1.0",
     "chai": "4.2.0",
     "coveralls": "3.1.0",
-    "eslint": "7.4.0",
+    "eslint": "7.5.0",
     "eslint-config-airbnb-base": "14.2.0",
     "eslint-plugin-import": "2.22.0",
     "eslint-plugin-json": "2.1.1",
     "eslint-plugin-markdown": "1.0.2",
     "eslint-plugin-mocha": "7.0.1",
-    "js-gardener": "2.0.164",
-    "node-tdd": "2.15.0",
+    "js-gardener": "2.0.165",
+    "node-tdd": "2.17.0",
     "nyc": "15.1.0",
     "semantic-release": "17.1.1"
   },
@@ -111,8 +111,8 @@
     "json-stringify-pretty-compact": "2.0.0",
     "lodash.clonedeep": "4.5.0",
     "lodash.isequal": "4.5.0",
-    "object-align": "1.0.11",
+    "object-align": "1.0.12",
     "xml-js": "1.6.11",
-    "yaml-boost": "1.9.22"
+    "yaml-boost": "1.9.23"
   }
 }
