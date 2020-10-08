@@ -10,6 +10,7 @@ describe('Testing Integration', () => {
       'guessFile',
       'walkDir',
       'cleaningDelete',
+      'smartParse',
       'smartRead',
       'smartWrite'
     ]);

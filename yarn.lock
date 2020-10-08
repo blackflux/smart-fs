@@ -8032,6 +8032,16 @@ yallist@^4.0.0:
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
   integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 
+yaml-boost@1.10.1:
+  version "1.10.1"
+  resolved "https://registry.yarnpkg.com/yaml-boost/-/yaml-boost-1.10.1.tgz#a9a39ed325fb5b72ef3034745d7368cc24f26d69"
+  integrity sha512-sh1/B2PlmyIQLW1/AEX++bnhW5ItO3d8blcwYIuE2a9lKDtU8D1wnadCQTZd4DPY+ljXHW4DGZtJ5iwCrdC31A==
+  dependencies:
+    js-yaml "3.14.0"
+    lodash.get "4.4.2"
+    lodash.mergewith "4.6.2"
+    lodash.set "4.3.2"
+
 yaml-boost@1.9.25:
   version "1.9.25"
   resolved "https://registry.yarnpkg.com/yaml-boost/-/yaml-boost-1.9.25.tgz#5f173899bd88db6b0a5892eab85dbf6c03497ea7"
