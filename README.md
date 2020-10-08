@@ -40,6 +40,10 @@ Will only return entries where `fs.lstatSync(...).isFile()` evaluates to true (t
 
 Delete file and all empty parent directories.
 
+### smartParse(content, options = { treatAs = null, resolve = true, refPath = process.cwd() })
+
+Core logic of `smartRead` but takes content and refPath.
+
 ### smartRead(filepath, options = { treatAs = null, resolve = true })
 
 Read and parse file based on file extension.
@@ -49,7 +53,7 @@ The following extensions are handled in order:
 - `.json`: Loads file using [JSON.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse).
 - `.xml`: Loads file using [xml-js](https://github.com/nashwaan/xml-js).
 - `.yml` and `.yaml`: Loads file using [yaml-boost](https://github.com/blackflux/yaml-boost).
-- `.js`: Loads file using [require](https://nodejs.org/api/modules.html#modules_require_id).
+- `.js`: Loads file using "hacked" [require](https://nodejs.org/api/modules.html#modules_require_id).
 - `.*`: Treats file as text file and loads as array of lines.
 
 Note that the [required cache](https://nodejs.org/api/modules.html#modules_require_cache) is not automatically invalidated when loading cached `.js` files.
@@ -64,7 +68,7 @@ Serialize and write content to file based on file extension.
 
 The file and all necessary folders are created if not present.
 
-The file is only actually written if the content has changed. 
+The file is only actually written if the content has changed.
 Returns true if the file was written, false otherwise.
 
 The following extension are handled in order:
@@ -83,7 +87,7 @@ When `create` is set to `false` no action is taken if the file does not already 
 
 When `pretty` is set to `true`, the output is formatted more compact.
 
-When `keepOrder` is set to `true` and a file is overwritten, 
+When `keepOrder` is set to `true` and a file is overwritten,
 the new content is ordered according to the existing content (e.g. for `json` and `yml`)
 
 To `resolve` the original file before overwrite merging pass the option as `true`.
