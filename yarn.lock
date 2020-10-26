@@ -5328,6 +5328,11 @@ object-align@1.0.14:
   resolved "https://registry.yarnpkg.com/object-align/-/object-align-1.0.14.tgz#e040ee0e017e9d575f56edbb33b36b94303c2cf1"
   integrity sha512-RtMw2ieTSZIqLJu2CKr0ZDATPVkB8UmLrjQ/9v3UnzYMeJeKfFphLtZKtNFhzTjv/btljjLGgbVMWN5s4EWHEQ==
 
+object-align@1.0.15:
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/object-align/-/object-align-1.0.15.tgz#0c0a376d7f33d7c8ac028640c5d5936d7ec54a0d"
+  integrity sha512-UJruG3kzh6Oi0KAU6FVF0y6I4deAKoG1eaS4xCCYOwul3gX7XR2IcLzAWL91n45CiehUXPN/Ws/fPLTmyocE4g==
+
 object-assign@^4.0.1, object-assign@^4.1.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
