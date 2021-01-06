@@ -8059,12 +8059,12 @@ yaml-boost@1.10.2:
     lodash.mergewith "4.6.2"
     lodash.set "4.3.2"
 
-yaml-boost@1.10.3:
-  version "1.10.3"
-  resolved "https://registry.yarnpkg.com/yaml-boost/-/yaml-boost-1.10.3.tgz#c9ec29a8906f26f7a5dfa13b9d96ac56bebe35ee"
-  integrity sha512-okXg39aOb1D/dqVOkJDsemGw+5pAGFb3WyyfJHLJct9tVZWwv5ORd+SkCwl6Ca6eKZEpYxkz1yrGyCy6/rb0Vw==
+yaml-boost@1.10.5:
+  version "1.10.5"
+  resolved "https://registry.yarnpkg.com/yaml-boost/-/yaml-boost-1.10.5.tgz#684d7352f1e600d84a1ff90dab03e34c9e465e9b"
+  integrity sha512-fR6D5X8miG6SNs23UWtrzSKPsyNsEtQwKdi5C2pYeHgbJEIQPeHn78uCaxOGfwKZhIaHk/q+gKCQBCjH+lSvhA==
   dependencies:
-    js-yaml "3.14.1"
+    js-yaml "4.0.0"
     lodash.get "4.4.2"
     lodash.mergewith "4.6.2"
     lodash.set "4.3.2"
