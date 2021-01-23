@@ -6,7 +6,7 @@ const cloneDeep = require('lodash.clonedeep');
 const fsExtra = require('fs-extra');
 const stringify = require('json-stringify-pretty-compact');
 const yaml = require('yaml-boost');
-const objectAlign = require('object-align');
+const { align } = require('object-lib');
 const smartRead = require('./smart-read');
 const xmlParser = require('../util/xml-parser');
 const getExt = require('../util/get-ext');
@@ -53,7 +53,7 @@ module.exports = (filepath, content, options = {}) => {
   if (!isEqual(currentContent, mergedContent)) {
     fsExtra.ensureDirSync(path.dirname(filepath));
     if (ctx.keepOrder) {
-      objectAlign(mergedContent, currentContent);
+      align(mergedContent, currentContent);
     }
     let contentString;
     switch (ctx.treatAs || ext) {
