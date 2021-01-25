@@ -5458,10 +5458,10 @@ object-keys@^1.0.12, object-keys@^1.1.1:
   resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-1.1.1.tgz#1c47f272df277f3b1daf061677d9c82e2322c60e"
   integrity sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==
 
-object-lib@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/object-lib/-/object-lib-2.0.1.tgz#eeb5cd55c7a5d5fe149439c6be2e822f32d8f469"
-  integrity sha512-FG9OjDpxRxDOUIL0u5bo0pM/fMA+Bw0iw6xQIviK4Mhvyc7s6RfwPJKog/82nc2FWo1G3rxQRF8Hou9HYLSIPw==
+object-lib@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/object-lib/-/object-lib-2.0.2.tgz#859a32a35ac29567c52f544c517951db4eb83ff6"
+  integrity sha512-+k9W+/7Ld4lm6jNWIdC+3x0VQMTYL+vatbQeGAhmSPbITxLsSH0zqTQKD/WmmmfdN2AdFxU7drMcPEx/gW4jdw==
   dependencies:
     object-scan "13.8.0"
 
