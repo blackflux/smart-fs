@@ -5495,6 +5495,13 @@ object-lib@2.1.2:
   dependencies:
     object-scan "14.0.0"
 
+object-lib@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/object-lib/-/object-lib-3.0.0.tgz#630e437ef876f57d0483e54b485894ab37aca23e"
+  integrity sha512-CIlney6fXVZDlFcvRJVG4Bfemb5yceKjuSpv85Frm+SynKFPLNQGlFCRxYNlCrWnlhKdCs4MUei8ZA/cESczBA==
+  dependencies:
+    object-scan "14.0.0"
+
 object-scan@13.9.1:
   version "13.9.1"
   resolved "https://registry.yarnpkg.com/object-scan/-/object-scan-13.9.1.tgz#03ab1be0d55e29471774945173a5fdcfcf5ebb35"
