@@ -112,7 +112,7 @@
     "json-stringify-pretty-compact": "3.0.0",
     "lodash.clonedeep": "4.5.0",
     "lodash.isequal": "4.5.0",
-    "object-lib": "2.1.2",
+    "object-lib": "3.0.0",
     "xml-js": "1.6.11",
     "yaml-boost": "2.0.0"
   }
