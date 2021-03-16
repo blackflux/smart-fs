@@ -114,6 +114,6 @@
     "lodash.isequal": "4.5.0",
     "object-lib": "2.1.2",
     "xml-js": "1.6.11",
-    "yaml-boost": "1.10.7"
+    "yaml-boost": "2.0.0"
   }
 }
