@@ -8268,6 +8268,16 @@ yaml-boost@1.10.7:
     lodash.mergewith "4.6.2"
     lodash.set "4.3.2"
 
+yaml-boost@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/yaml-boost/-/yaml-boost-2.0.0.tgz#7c0b69acfa7dce07ff6eac87e3947da022e347cd"
+  integrity sha512-zyjDFxwxd7AQ4FZO+03Dsv/Glb38gwT59UduDTZL8NC2cr8Q+UH6LRJqTuHkn9dPMWkSM5zV1xPqE0/LFg+G4g==
+  dependencies:
+    js-yaml "4.0.0"
+    lodash.get "4.4.2"
+    lodash.mergewith "4.6.2"
+    lodash.set "4.3.2"
+
 yaml@^1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-1.10.0.tgz#3b593add944876077d4d683fee01081bd9fff31e"
