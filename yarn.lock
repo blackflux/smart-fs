@@ -350,12 +350,12 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@blackflux/eslint-plugin-rules@2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@blackflux/eslint-plugin-rules/-/eslint-plugin-rules-2.0.2.tgz#a02e26780cc76f2822b37dc2a0a9fd3b9c3dee1a"
-  integrity sha512-Mu8Vp7H+GCD+E2nHIzFC9QovSUmMVccpLIq0LqqgMz7634csWItY75hSwjb45v+BUVtdiHmaIIOo5mrykGnAcQ==
+"@blackflux/eslint-plugin-rules@2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@blackflux/eslint-plugin-rules/-/eslint-plugin-rules-2.0.3.tgz#80ce0821633f8c5fe174a0d224d192d5ea51ffa6"
+  integrity sha512-hqfxslO8LuvWScFavxqZUuF0ky3DDaujsxuklWT+O4iL87cWA0ylMP5BTrahXVHTM1ExkC3vsxSvtaGjjJ/emQ==
   dependencies:
-    smart-fs "2.0.1"
+    smart-fs "2.0.2"
 
 "@blackflux/robo-config-plugin@5.0.0":
   version "5.0.0"
@@ -5061,10 +5061,10 @@ node-sass-tilde-importer@^1.0.2:
   dependencies:
     find-parent-dir "^0.3.0"
 
-node-tdd@3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/node-tdd/-/node-tdd-3.0.3.tgz#73b1443bfeff15bfbed831a9932b89a80cc4a18f"
-  integrity sha512-VTZElkIwnR/IzzUdySp5k9QS8OKkKMdIo5XM9P1CCWLkj7+HL+brN25xwQHG7iI6KcKhxR5iRDesp7UFXD9L+g==
+node-tdd@3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/node-tdd/-/node-tdd-3.0.4.tgz#d7a92787c98816a7b3702fdc18986a14c7b85002"
+  integrity sha512-5fxclyW/rQ/LzSa4o4uawNYzPKfmXLl50XB5MgweX69dld0F71fnlhVTc9ppABPjVkLorwsmhJ8W0YMSy7IbRg==
   dependencies:
     callsites "3.1.0"
     joi-strict "2.0.0"
@@ -5073,7 +5073,7 @@ node-tdd@3.0.3:
     minimist "1.2.5"
     nock "13.0.11"
     object-scan "14.0.0"
-    smart-fs "2.0.1"
+    smart-fs "2.0.2"
     timekeeper "2.2.0"
     tmp "0.2.1"
     uuid "8.3.0"
@@ -6906,6 +6906,20 @@ smart-fs@2.0.1:
     lodash.clonedeep "4.5.0"
     lodash.isequal "4.5.0"
     object-lib "2.1.2"
+    xml-js "1.6.11"
+    yaml-boost "2.0.0"
+
+smart-fs@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/smart-fs/-/smart-fs-2.0.2.tgz#684814a9137efea10bc7d4ff437a2bad6cc9ac79"
+  integrity sha512-BQSuFSArvimIV6tEOMKTOu7ZVKq/SUcuuTO27cquPKzbA8fFZKOabZUq1JpMoh24SBfxXxncEwvmgZIwHZZLuA==
+  dependencies:
+    fs-extra "9.1.0"
+    js-yaml "4.0.0"
+    json-stringify-pretty-compact "3.0.0"
+    lodash.clonedeep "4.5.0"
+    lodash.isequal "4.5.0"
+    object-lib "3.0.0"
     xml-js "1.6.11"
     yaml-boost "2.0.0"
 
