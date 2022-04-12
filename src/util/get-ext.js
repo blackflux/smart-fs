@@ -1,7 +1,7 @@
-const assert = require('assert');
-const path = require('path');
+import assert from 'assert';
+import path from 'path';
 
-module.exports = (filename) => {
+ export default (filename) => {
   assert(typeof filename === 'string');
   return path.extname(filename).slice(1);
 };

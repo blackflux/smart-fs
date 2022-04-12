@@ -1,6 +1,6 @@
-const expect = require('chai').expect;
-const { describe } = require('node-tdd');
-const smartParse = require('../../src/logic/smart-parse');
+import { expect } from 'chai';
+import { describe } from 'node-tdd';
+import smartParse from '../../src/logic/smart-parse.js';
 
 describe('Testing smartParse', () => {
   it('Testing default', () => {

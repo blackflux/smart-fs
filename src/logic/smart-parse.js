@@ -1,11 +1,10 @@
-const assert = require('assert');
-const yamlBoost = require('yaml-boost');
-const yaml = require('js-yaml');
-const getExt = require('../util/get-ext');
-const xmlParser = require('../util/xml-parser');
-const requireFromString = require('../util/require-from-string');
+import assert from 'assert';
+import yamlBoost from 'yaml-boost';
+import yaml from 'js-yaml';
+import getExt from '../util/get-ext.js';
+import * as xmlParser from '../util/xml-parser.js';
 
-module.exports = (content, options = {}) => {
+export default (content, options = {}) => {
   assert(typeof content === 'string');
   assert(options instanceof Object && !Array.isArray(options));
 
@@ -33,9 +32,6 @@ module.exports = (content, options = {}) => {
       result = ctx.resolve
         ? yamlBoost.resolve(ctx.refPath, content, {})
         : yaml.load(content);
-      break;
-    case 'js':
-      result = requireFromString(content, ctx.refPath);
       break;
     default:
       result = content.split('\n');

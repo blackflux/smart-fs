@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
-const expect = require('chai').expect;
-const { describe } = require('node-tdd');
-const guessFile = require('../../src/logic/guess-file');
+import fs from 'fs';
+import path from 'path';
+import { expect } from 'chai';
+import { describe } from 'node-tdd';
+import guessFile from '../../src/logic/guess-file.js';
 
 describe('Testing guessFile', { useTmpDir: true }, () => {
   let tmpDir;

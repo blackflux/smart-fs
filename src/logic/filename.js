@@ -1,3 +1,3 @@
-const { fileURLToPath } = require('url');
+import { fileURLToPath } from 'url';
 
-module.exports = (url) => fileURLToPath(url);
+ export default (url) => fileURLToPath(url);

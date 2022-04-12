@@ -1,5 +1,6 @@
 {
   "name": "smart-fs",
+  "type": "module",
   "version": "0.0.0-development",
   "description": "Abstraction Layer for File Management.",
   "main": "lib/index.js",
@@ -44,55 +45,24 @@
   },
   "homepage": "https://github.com/blackflux/smart-fs#readme",
   "devDependencies": {
-    "@babel/cli": "7.14.8",
-    "@babel/core": "7.15.0",
-    "@babel/register": "7.15.3",
-    "@blackflux/eslint-plugin-rules": "2.0.3",
-    "@blackflux/robo-config-plugin": "5.3.0",
-    "babel-eslint": "10.1.0",
-    "babel-preset-latest-node": "5.5.1",
-    "chai": "4.3.4",
+    "@babel/core": "7.17.9",
+    "@babel/eslint-parser": "7.17.0",
+    "@babel/register": "7.17.7",
+    "@blackflux/eslint-plugin-rules": "2.1.0",
+    "@blackflux/robo-config-plugin": "7.7.6",
+    "c8": "7.11.0",
+    "chai": "4.3.6",
     "coveralls": "3.1.1",
-    "eslint": "7.32.0",
-    "eslint-config-airbnb-base": "14.2.1",
-    "eslint-plugin-import": "2.24.2",
+    "eslint": "8.13.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-plugin-import": "2.26.0",
     "eslint-plugin-json": "3.1.0",
-    "eslint-plugin-markdown": "2.2.0",
-    "eslint-plugin-mocha": "9.0.0",
-    "js-gardener": "3.0.3",
-    "node-tdd": "3.0.4",
+    "eslint-plugin-markdown": "2.2.1",
+    "eslint-plugin-mocha": "10.0.4",
+    "js-gardener": "3.0.5",
+    "node-tdd": "3.3.2",
     "nyc": "15.1.0",
-    "semantic-release": "17.4.7"
-  },
-  "nyc": {
-    "tempDir": "./coverage/.nyc_output",
-    "report-dir": "./coverage",
-    "check-coverage": true,
-    "per-file": false,
-    "lines": 100,
-    "statements": 100,
-    "functions": 100,
-    "branches": 100,
-    "include": [
-      "**/*.js"
-    ],
-    "reporter": [
-      "lcov",
-      "text-summary"
-    ],
-    "require": [
-      "@babel/register"
-    ],
-    "extension": [],
-    "cache": true,
-    "all": true,
-    "babel": true,
-    "exclude": [
-      "gardener.js",
-      "node_modules/*",
-      "coverage/*",
-      "lib/*"
-    ]
+    "smart-fs": "2.1.0"
   },
   "licenses": [
     {
@@ -107,13 +77,13 @@
     "lib"
   ],
   "dependencies": {
-    "fs-extra": "10.0.0",
+    "fs-extra": "10.0.1",
     "js-yaml": "4.1.0",
     "json-stringify-pretty-compact": "3.0.0",
     "lodash.clonedeep": "4.5.0",
     "lodash.isequal": "4.5.0",
-    "object-lib": "3.0.0",
+    "object-lib": "3.0.1",
     "xml-js": "1.6.11",
-    "yaml-boost": "2.0.0"
+    "yaml-boost": "2.0.1"
   }
 }

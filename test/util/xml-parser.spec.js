@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
-const expect = require('chai').expect;
-const { describe } = require('node-tdd');
-const xmlParser = require('../../src/util/xml-parser');
+import fs from 'fs';
+import path from 'path';
+import { expect } from 'chai';
+import { describe } from 'node-tdd';
+import * as xmlParser from '../../src/util/xml-parser.js';
 
 describe('Testing xml-parser.js', () => {
   const executeTest = (filename) => {

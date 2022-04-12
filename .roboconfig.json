@@ -8,9 +8,10 @@
       "packageName": "smart-fs",
       "projectName": "smart-fs",
       "owner": "simlu",
-      "nodeVersion": "12",
+      "nodeVersion": "14",
       "ownerName": "Lukas Siemon",
-      "mergeBot": "MrsFlux"
+      "mergeBot": "MrsFlux",
+      "nccEnabled": false
     }
   }
 }

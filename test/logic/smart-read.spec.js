@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
-const expect = require('chai').expect;
-const { describe } = require('node-tdd');
-const smartRead = require('../../src/logic/smart-read');
+import fs from 'fs';
+import path from 'path';
+import { expect } from 'chai';
+import { describe } from 'node-tdd';
+import smartRead from '../../src/logic/smart-read.js';
 
 describe('Testing smartRead', { useTmpDir: true }, () => {
   let tmpDir;
@@ -14,6 +14,13 @@ describe('Testing smartRead', { useTmpDir: true }, () => {
     const filepath = path.join(tmpDir, filename);
     fs.writeFileSync(filepath, content, 'utf8');
     expect(smartRead(filepath, options)).to.deep.equal(expected);
+  };
+
+  const executeTestAsync = async (filename, content, expected, options) => {
+    const filepath = path.join(tmpDir, filename);
+    fs.writeFileSync(filepath, content, 'utf8');
+    const r = await smartRead(filepath, options);
+    expect(r).to.deep.equal(expected);
   };
 
   it('Testing .json', () => {
@@ -53,12 +60,12 @@ describe('Testing smartRead', { useTmpDir: true }, () => {
   });
 
   it('Testing .js', () => {
-    executeTest('file.js', "module.exports = {key: 'value'};", { key: 'value' });
+    executeTestAsync('file.js', " export default {key: 'value'};", { key: 'value' });
   });
 
   it('Testing .js cache not invalidated', () => {
-    executeTest('file.js', "module.exports = {key: 'value'};", { key: 'value' });
-    executeTest('file.js', "module.exports = {key: 'other'};", { key: 'value' });
+    executeTestAsync('file.js', " export default {key: 'value'};", { key: 'value' });
+    executeTestAsync('file.js', " export default {key: 'other'};", { key: 'value' });
   });
 
   it('Testing default', () => {

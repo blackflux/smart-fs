@@ -1,14 +1,26 @@
-const fs = require('fs');
+import fs from 'fs';
+import dirname from './logic/dirname.js';
+import filename from './logic/filename.js';
 
-module.exports = { ...fs };
+import guessFile from './logic/guess-file.js';
+import walkDir from './logic/walk-dir.js';
+import cleaningDelete from './logic/cleaning-delete.js';
 
-module.exports.dirname = require('./logic/dirname');
-module.exports.filename = require('./logic/filename');
+import smartParse from './logic/smart-parse.js';
+import smartRead from './logic/smart-read.js';
+import smartWrite from './logic/smart-write.js';
 
-module.exports.guessFile = require('./logic/guess-file');
-module.exports.walkDir = require('./logic/walk-dir');
-module.exports.cleaningDelete = require('./logic/cleaning-delete');
+export default {
+  ...fs,
 
-module.exports.smartParse = require('./logic/smart-parse');
-module.exports.smartRead = require('./logic/smart-read');
-module.exports.smartWrite = require('./logic/smart-write');
+  dirname,
+  filename,
+
+  guessFile,
+  walkDir,
+  cleaningDelete,
+
+  smartParse,
+  smartRead,
+  smartWrite
+};
