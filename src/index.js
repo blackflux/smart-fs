@@ -1,4 +1,4 @@
-import fs_ from 'fs';
+import fs from 'fs';
 
 import dirname_ from './logic/dirname.js';
 import filename_ from './logic/filename.js';
@@ -11,7 +11,7 @@ import smartParse_ from './logic/smart-parse.js';
 import smartRead_ from './logic/smart-read.js';
 import smartWrite_ from './logic/smart-write.js';
 
-export const fs = fs_;
+export * from 'fs';
 
 export const dirname = dirname_;
 export const filename = filename_;
@@ -25,7 +25,7 @@ export const smartRead = smartRead_;
 export const smartWrite = smartWrite_;
 
 export default {
-  ...fs_,
+  ...fs,
 
   dirname,
   filename,
