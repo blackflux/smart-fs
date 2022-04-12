@@ -53,7 +53,7 @@ The following extensions are handled in order:
 - `.json`: Loads file using [JSON.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse).
 - `.xml`: Loads file using [xml-js](https://github.com/nashwaan/xml-js).
 - `.yml` and `.yaml`: Loads file using [yaml-boost](https://github.com/blackflux/yaml-boost).
-- `.js`: Loads file using "hacked" [require](https://nodejs.org/api/modules.html#modules_require_id).
+- `.js`: Loads file using [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import). Result is a promise!
 - `.*`: Treats file as text file and loads as array of lines.
 
 Note that the [required cache](https://nodejs.org/api/modules.html#modules_require_cache) is not automatically invalidated when loading cached `.js` files.

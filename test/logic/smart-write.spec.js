@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
-const expect = require('chai').expect;
-const { describe } = require('node-tdd');
-const smartWrite = require('../../src/logic/smart-write');
+import fs from 'fs';
+import path from 'path';
+import { expect } from 'chai';
+import { describe } from 'node-tdd';
+import smartWrite from '../../src/logic/smart-write.js';
 
 describe('Testing smartWrite', { useTmpDir: true }, () => {
   let tmpDir;
