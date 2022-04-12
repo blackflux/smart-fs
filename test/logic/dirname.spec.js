@@ -1,6 +1,6 @@
-const expect = require('chai').expect;
-const { describe } = require('node-tdd');
-const dirname = require('../../src/logic/dirname');
+import { expect } from 'chai';
+import { describe } from 'node-tdd';
+import dirname from '../../src/logic/dirname.js';
 
 describe('Testing dirname', () => {
   it('Testing transforamtion', () => {

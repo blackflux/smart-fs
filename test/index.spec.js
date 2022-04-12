@@ -1,7 +1,7 @@
-const fs = require('fs');
-const expect = require('chai').expect;
-const { describe } = require('node-tdd');
-const sfs = require('../src/index');
+import fs from 'fs';
+import { expect } from 'chai';
+import { describe } from 'node-tdd';
+import sfs from '../src/index.js';
 
 describe('Testing Integration', () => {
   it('Testing Exported Functions', () => {

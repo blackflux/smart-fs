@@ -1,8 +1,8 @@
-const assert = require('assert');
-const fs = require('fs');
-const path = require('path');
+import assert from 'assert';
+import fs from 'fs';
+import path from 'path';
 
-module.exports = (filepath, options = {}) => {
+export default (filepath, options = {}) => {
   assert(typeof filepath === 'string');
   assert(options instanceof Object && !Array.isArray(options));
 

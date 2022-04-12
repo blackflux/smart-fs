@@ -1,9 +1,9 @@
-const assert = require('assert');
-const fs = require('fs');
-const getExt = require('../util/get-ext');
-const smartParse = require('./smart-parse');
+import assert from 'assert';
+import fs from 'fs';
+import getExt from '../util/get-ext.js';
+import smartParse from './smart-parse.js';
 
-module.exports = (filepath, options = {}) => {
+export default (filepath, options = {}) => {
   assert(typeof filepath === 'string');
   assert(options instanceof Object && !Array.isArray(options));
 
@@ -12,9 +12,14 @@ module.exports = (filepath, options = {}) => {
   assert(ctx.treatAs === null || typeof ctx.treatAs === 'string');
   assert(typeof ctx.resolve === 'boolean');
 
+  const treatAs = ctx.treatAs || getExt(filepath);
+  if (treatAs === 'js') {
+    return import(filepath);
+  }
+
   return smartParse(fs.readFileSync(filepath, 'utf8'), {
     ...ctx,
     refPath: filepath,
-    treatAs: ctx.treatAs || getExt(filepath)
+    treatAs
   });
 };

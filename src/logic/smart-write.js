@@ -1,17 +1,17 @@
-const assert = require('assert');
-const fs = require('fs');
-const path = require('path');
-const isEqual = require('lodash.isequal');
-const cloneDeep = require('lodash.clonedeep');
-const fsExtra = require('fs-extra');
-const stringify = require('json-stringify-pretty-compact');
-const yaml = require('yaml-boost');
-const { align } = require('object-lib');
-const smartRead = require('./smart-read');
-const xmlParser = require('../util/xml-parser');
-const getExt = require('../util/get-ext');
+import assert from 'assert';
+import fs from 'fs';
+import path from 'path';
+import isEqual from 'lodash.isequal';
+import cloneDeep from 'lodash.clonedeep';
+import fsExtra from 'fs-extra';
+import stringify from 'json-stringify-pretty-compact';
+import yaml from 'yaml-boost';
+import { align } from 'object-lib';
+import smartRead from './smart-read.js';
+import * as xmlParser from '../util/xml-parser.js';
+import getExt from '../util/get-ext.js';
 
-module.exports = (filepath, content, options = {}) => {
+export default (filepath, content, options = {}) => {
   assert(typeof filepath === 'string');
   assert(content instanceof Object);
   assert(options instanceof Object && !Array.isArray(options));

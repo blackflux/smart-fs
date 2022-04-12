@@ -1,9 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-const expect = require('chai').expect;
-const { describe } = require('node-tdd');
-const smartWrite = require('../../src/logic/smart-write');
-const cleanDelete = require('../../src/logic/cleaning-delete');
+import fs from 'fs';
+import path from 'path';
+import { expect } from 'chai';
+import { describe } from 'node-tdd';
+import smartWrite from '../../src/logic/smart-write.js';
+import cleanDelete from '../../src/logic/cleaning-delete.js';
 
 describe('Testing cleanDelete', { useTmpDir: true }, () => {
   it('Testing empty nested folder delete', ({ dir }) => {

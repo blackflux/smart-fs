@@ -1,4 +1,4 @@
-const { dirname } = require('path');
-const filename = require('./filename');
+import { dirname } from 'path';
+import filename from './filename.js';
 
-module.exports = (url) => dirname(filename(url));
+export default (url) => dirname(filename(url));

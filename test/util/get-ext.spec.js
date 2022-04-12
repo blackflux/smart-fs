@@ -1,7 +1,7 @@
-const path = require('path');
-const expect = require('chai').expect;
-const { describe } = require('node-tdd');
-const getExt = require('../../src/util/get-ext');
+import path from 'path';
+import { expect } from 'chai';
+import { describe } from 'node-tdd';
+import getExt from '../../src/util/get-ext.js';
 
 describe('Testing get-ext.js', () => {
   const executeTest = (filename, expected) => {
