@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
- export default (dirpath) => {
+export default (dirpath) => {
   const result = [];
 
   const files = [dirpath];

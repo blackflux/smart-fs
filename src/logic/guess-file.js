@@ -2,7 +2,7 @@ import assert from 'assert';
 import fs from 'fs';
 import path from 'path';
 
- export default (filepath, options = {}) => {
+export default (filepath, options = {}) => {
   assert(typeof filepath === 'string');
   assert(options instanceof Object && !Array.isArray(options));
 

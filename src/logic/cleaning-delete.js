@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
- export default (filepath) => {
+export default (filepath) => {
   try {
     fs.unlinkSync(filepath);
     let cpath = filepath;

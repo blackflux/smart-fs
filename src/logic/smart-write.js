@@ -11,7 +11,7 @@ import smartRead from './smart-read.js';
 import * as xmlParser from '../util/xml-parser.js';
 import getExt from '../util/get-ext.js';
 
- export default (filepath, content, options = {}) => {
+export default (filepath, content, options = {}) => {
   assert(typeof filepath === 'string');
   assert(content instanceof Object);
   assert(options instanceof Object && !Array.isArray(options));
