@@ -14,7 +14,7 @@ export default (filepath, options = {}) => {
 
   const treatAs = ctx.treatAs || getExt(filepath);
   if (treatAs === 'js') {
-    return import(filepath);
+    return import(filepath).then(({ default: d }) => d);
   }
 
   return smartParse(fs.readFileSync(filepath, 'utf8'), {

@@ -18,7 +18,9 @@ describe('Testing smartRead', { useTmpDir: true }, () => {
 
   const executeTestAsync = async (filename, content, expected, options) => {
     const filepath = path.join(tmpDir, filename);
+    const pkgpath = path.join(tmpDir, 'package.json');
     fs.writeFileSync(filepath, content, 'utf8');
+    fs.writeFileSync(pkgpath, '{ "type": "module" }', 'utf8');
     const r = await smartRead(filepath, options);
     expect(r).to.deep.equal(expected);
   };
@@ -59,13 +61,13 @@ describe('Testing smartRead', { useTmpDir: true }, () => {
     executeTest('file.yml', '<<<:\n  - key: value', { '<<<': [{ key: 'value' }] }, { resolve: false });
   });
 
-  it('Testing .js', () => {
-    executeTestAsync('file.js', " export default {key: 'value'};", { key: 'value' });
+  it('Testing .js', async () => {
+    await executeTestAsync('file.js', "export default {key: 'value'};", { key: 'value' });
   });
 
-  it('Testing .js cache not invalidated', () => {
-    executeTestAsync('file.js', " export default {key: 'value'};", { key: 'value' });
-    executeTestAsync('file.js', " export default {key: 'other'};", { key: 'value' });
+  it('Testing .js cache not invalidated', async () => {
+    await executeTestAsync('file.js', "export default {key: 'value'};", { key: 'value' });
+    await executeTestAsync('file.js', "export default {key: 'other'};", { key: 'value' });
   });
 
   it('Testing default', () => {
