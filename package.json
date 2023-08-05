@@ -48,7 +48,7 @@
     "@babel/eslint-parser": "7.22.9",
     "@babel/register": "7.22.5",
     "@blackflux/eslint-plugin-rules": "3.0.0",
-    "@blackflux/robo-config-plugin": "9.1.8",
+    "@blackflux/robo-config-plugin": "9.1.9",
     "c8": "8.0.1",
     "chai": "4.3.7",
     "eslint": "8.46.0",
@@ -58,8 +58,8 @@
     "eslint-plugin-markdown": "3.0.1",
     "eslint-plugin-mocha": "10.1.0",
     "js-gardener": "5.0.1",
-    "node-tdd": "3.5.4",
-    "smart-fs": "3.0.2"
+    "node-tdd": "4.0.0",
+    "smart-fs": "4.0.0"
   },
   "licenses": [
     {
@@ -79,7 +79,7 @@
     "json-stringify-pretty-compact": "4.0.0",
     "lodash.clonedeep": "4.5.0",
     "lodash.isequal": "4.5.0",
-    "object-lib": "3.0.1",
+    "object-lib": "4.0.0",
     "xml-js": "1.6.11",
     "yaml-boost": "2.0.1"
   }
