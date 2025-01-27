@@ -6,6 +6,7 @@ import smartWrite from '../../src/logic/smart-write.js';
 
 describe('Testing smartWrite', { useTmpDir: true }, () => {
   let tmpDir;
+
   beforeEach(({ dir }) => {
     tmpDir = dir;
   });

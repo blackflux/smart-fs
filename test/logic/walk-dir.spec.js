@@ -7,6 +7,7 @@ import smartWrite from '../../src/logic/smart-write.js';
 
 describe('Testing walkDir', { useTmpDir: true }, () => {
   let tmpDir;
+
   beforeEach(({ dir }) => {
     tmpDir = dir;
   });
