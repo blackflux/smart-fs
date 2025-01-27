@@ -5,7 +5,7 @@ import isEqual from 'lodash.isequal';
 import cloneDeep from 'lodash.clonedeep';
 import fsExtra from 'fs-extra';
 import stringify from 'json-stringify-pretty-compact';
-import yaml from 'yaml-boost';
+import { dump } from 'yaml-boost';
 import { align } from 'object-lib';
 import smartRead from './smart-read.js';
 import * as xmlParser from '../util/xml-parser.js';
@@ -59,7 +59,7 @@ export default (filepath, content, options = {}) => {
     switch (ctx.treatAs || ext) {
       case 'yml':
       case 'yaml':
-        contentString = yaml.dump(mergedContent);
+        contentString = dump(mergedContent);
         break;
       case 'xml':
         contentString = xmlParser.stringify(mergedContent, options);

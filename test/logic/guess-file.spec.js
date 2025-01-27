@@ -6,6 +6,7 @@ import guessFile from '../../src/logic/guess-file.js';
 
 describe('Testing guessFile', { useTmpDir: true }, () => {
   let tmpDir;
+
   beforeEach(({ dir }) => {
     tmpDir = dir;
   });
