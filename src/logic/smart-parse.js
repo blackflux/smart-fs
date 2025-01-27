@@ -1,5 +1,5 @@
 import assert from 'assert';
-import yamlBoost from 'yaml-boost';
+import { resolve } from 'yaml-boost';
 import yaml from 'js-yaml';
 import getExt from '../util/get-ext.js';
 import * as xmlParser from '../util/xml-parser.js';
@@ -30,7 +30,7 @@ export default (content, options = {}) => {
     case 'yml':
     case 'yaml':
       result = ctx.resolve
-        ? yamlBoost.resolve(ctx.refPath, content, {})
+        ? resolve(ctx.refPath, content, {})
         : yaml.load(content);
       break;
     default:

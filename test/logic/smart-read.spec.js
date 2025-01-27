@@ -6,6 +6,7 @@ import smartRead from '../../src/logic/smart-read.js';
 
 describe('Testing smartRead', { useTmpDir: true }, () => {
   let tmpDir;
+
   beforeEach(({ dir }) => {
     tmpDir = dir;
   });
@@ -54,7 +55,7 @@ describe('Testing smartRead', { useTmpDir: true }, () => {
   });
 
   it('Testing .yml (resolve)', () => {
-    executeTest('file.yml', '<<<:\n  - key: value', { key: 'value' });
+    executeTestAsync('file.yml', '<<<:\n  - key: value', { key: 'value' });
   });
 
   it('Testing .yml (no resolve)', () => {

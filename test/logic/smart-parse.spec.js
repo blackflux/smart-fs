@@ -11,8 +11,8 @@ describe('Testing smartParse', () => {
     expect(smartParse('{}', { treatAs: 'json' })).to.deep.equal({});
   });
 
-  it('Testing .yml (resolve)', () => {
-    expect(smartParse('<<<:\n  - key: value', { treatAs: 'yml' }))
+  it('Testing .yml (resolve)', async () => {
+    expect(await smartParse('<<<:\n  - key: value', { treatAs: 'yml' }))
       .to.deep.equal({ key: 'value' });
   });
 });
