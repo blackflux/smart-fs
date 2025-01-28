@@ -55,7 +55,7 @@ describe('Testing smartRead', { useTmpDir: true }, () => {
   });
 
   it('Testing .yml (resolve)', () => {
-    executeTestAsync('file.yml', '<<<:\n  - key: value', { key: 'value' });
+    executeTest('file.yml', '<<<:\n  - key: value', { key: 'value' });
   });
 
   it('Testing .yml (no resolve)', () => {
