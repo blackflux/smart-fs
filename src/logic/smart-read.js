@@ -3,6 +3,14 @@ import fs from 'fs';
 import getExt from '../util/get-ext.js';
 import smartParse from './smart-parse.js';
 
+// todo: use this when node 20 is deprecated
+// import { createRequire } from 'module';
+// const requireRaw = createRequire(import.meta.url);
+// const requireEsm = (arg) => {
+//   const result = requireRaw(arg);
+//   return 'default' in result ? result.default : result;
+// };
+
 export default (filepath, options = {}) => {
   assert(typeof filepath === 'string');
   assert(options instanceof Object && !Array.isArray(options));
@@ -14,7 +22,7 @@ export default (filepath, options = {}) => {
 
   const treatAs = ctx.treatAs || getExt(filepath);
   if (treatAs === 'js') {
-    return import(filepath).then(({ default: d }) => d);
+    return import(filepath).then((m) => m.default);
   }
 
   return smartParse(fs.readFileSync(filepath, 'utf8'), {
